@@ -15,7 +15,7 @@
 		00C5E177193FB3AC009DA7B9 /* CineAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C5E176193FB3AC009DA7B9 /* CineAppDelegate.m */; };
 		00C5E17A193FB3AC009DA7B9 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00C5E178193FB3AC009DA7B9 /* Main_iPhone.storyboard */; };
 		00C5E17D193FB3AC009DA7B9 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00C5E17B193FB3AC009DA7B9 /* Main_iPad.storyboard */; };
-		00C5E180193FB3AC009DA7B9 /* CineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C5E17F193FB3AC009DA7B9 /* CineViewController.m */; };
+		00C5E180193FB3AC009DA7B9 /* CineViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00C5E17F193FB3AC009DA7B9 /* CineViewController.mm */; };
 		00C5E182193FB3AC009DA7B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00C5E181193FB3AC009DA7B9 /* Images.xcassets */; };
 		00C5E189193FB3AC009DA7B9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C5E188193FB3AC009DA7B9 /* XCTest.framework */; };
 		00C5E18A193FB3AC009DA7B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C5E166193FB3AC009DA7B9 /* Foundation.framework */; };
@@ -26,6 +26,8 @@
 		00C5E1A1193FB761009DA7B9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 00C5E1A0193FB761009DA7B9 /* README.md */; };
 		00C5E1A3193FB8C2009DA7B9 /* cineio-settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00C5E1A2193FB8C2009DA7B9 /* cineio-settings.plist */; };
 		00C5E1A5193FB9EC009DA7B9 /* SAMPLE-cineio-settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00C5E1A4193FB9EC009DA7B9 /* SAMPLE-cineio-settings.plist */; };
+		00C5E1A9193FBE7A009DA7B9 /* CinePipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00C5E1A7193FBE7A009DA7B9 /* CinePipeline.cpp */; };
+		00C5E1AC193FC3F2009DA7B9 /* CinePixelBufferOutput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00C5E1AA193FC3F2009DA7B9 /* CinePixelBufferOutput.cpp */; };
 		F1B189ABA9E24A2C8C3F0B46 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D51065605F54399B601FB91 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,17 +55,21 @@
 		00C5E179193FB3AC009DA7B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		00C5E17C193FB3AC009DA7B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		00C5E17E193FB3AC009DA7B9 /* CineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CineViewController.h; sourceTree = "<group>"; };
-		00C5E17F193FB3AC009DA7B9 /* CineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CineViewController.m; sourceTree = "<group>"; };
+		00C5E17F193FB3AC009DA7B9 /* CineViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CineViewController.mm; sourceTree = "<group>"; };
 		00C5E181193FB3AC009DA7B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		00C5E187193FB3AC009DA7B9 /* BroadcasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BroadcasterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C5E188193FB3AC009DA7B9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		00C5E190193FB3AC009DA7B9 /* BroadcasterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BroadcasterTests-Info.plist"; sourceTree = "<group>"; };
 		00C5E192193FB3AC009DA7B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00C5E194193FB3AC009DA7B9 /* BroadcasterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcasterTests.m; sourceTree = "<group>"; };
-		00C5E19E193FB74B009DA7B9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		00C5E19E193FB74B009DA7B9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		00C5E1A0193FB761009DA7B9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		00C5E1A2193FB8C2009DA7B9 /* cineio-settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "cineio-settings.plist"; sourceTree = "<group>"; };
 		00C5E1A4193FB9EC009DA7B9 /* SAMPLE-cineio-settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SAMPLE-cineio-settings.plist"; sourceTree = "<group>"; };
+		00C5E1A7193FBE7A009DA7B9 /* CinePipeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CinePipeline.cpp; sourceTree = "<group>"; };
+		00C5E1A8193FBE7A009DA7B9 /* CinePipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinePipeline.h; sourceTree = "<group>"; };
+		00C5E1AA193FC3F2009DA7B9 /* CinePixelBufferOutput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CinePixelBufferOutput.cpp; sourceTree = "<group>"; };
+		00C5E1AB193FC3F2009DA7B9 /* CinePixelBufferOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinePixelBufferOutput.h; sourceTree = "<group>"; };
 		8D51065605F54399B601FB91 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DBB47F29D94692A4DACA20 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,8 +140,12 @@
 				00C5E176193FB3AC009DA7B9 /* CineAppDelegate.m */,
 				00C5E178193FB3AC009DA7B9 /* Main_iPhone.storyboard */,
 				00C5E17B193FB3AC009DA7B9 /* Main_iPad.storyboard */,
+				00C5E1AB193FC3F2009DA7B9 /* CinePixelBufferOutput.h */,
+				00C5E1AA193FC3F2009DA7B9 /* CinePixelBufferOutput.cpp */,
+				00C5E1A8193FBE7A009DA7B9 /* CinePipeline.h */,
+				00C5E1A7193FBE7A009DA7B9 /* CinePipeline.cpp */,
 				00C5E17E193FB3AC009DA7B9 /* CineViewController.h */,
-				00C5E17F193FB3AC009DA7B9 /* CineViewController.m */,
+				00C5E17F193FB3AC009DA7B9 /* CineViewController.mm */,
 				00C5E181193FB3AC009DA7B9 /* Images.xcassets */,
 				00C5E16D193FB3AC009DA7B9 /* Supporting Files */,
 			);
@@ -311,9 +321,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00C5E180193FB3AC009DA7B9 /* CineViewController.m in Sources */,
+				00C5E180193FB3AC009DA7B9 /* CineViewController.mm in Sources */,
 				00C5E173193FB3AC009DA7B9 /* main.m in Sources */,
+				00C5E1AC193FC3F2009DA7B9 /* CinePixelBufferOutput.cpp in Sources */,
 				00C5E177193FB3AC009DA7B9 /* CineAppDelegate.m in Sources */,
+				00C5E1A9193FBE7A009DA7B9 /* CinePipeline.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

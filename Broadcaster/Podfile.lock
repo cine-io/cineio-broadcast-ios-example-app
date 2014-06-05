@@ -43,13 +43,17 @@ PODS:
     - UriParser (~> 0.1.0)
 
 DEPENDENCIES:
-  - cineio-ios (~> 0.1.2)
+  - cineio-ios (from `/Users/jeffrey/dev/cine-dev/cineio-ios`)
   - VideoCore (~> 0.1.0)
+
+EXTERNAL SOURCES:
+  cineio-ios:
+    :path: /Users/jeffrey/dev/cine-dev/cineio-ios
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
   boost: 581038adda16d11045576013ad27e3eeeabc2d10
-  cineio-ios: 7f02038a8b85f68381fa47a252cb0298ed652182
+  cineio-ios: 1cc7c8bd4e150d853e619d7a358331e2965dceaf
   glm: 840dd35fe3cc445935accf81ffd1384dad532ee7
   UriParser: 146d027d5992e21e96eadc43f97dbcc2871e316a
   VideoCore: 65a3a65d741fd7505c2cf217c2164ead1f32c111

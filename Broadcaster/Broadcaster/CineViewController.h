@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CinePipeline.h"
 
 @interface CineViewController : UIViewController
+{
+    std::unique_ptr<Broadcaster::CinePipeline> pipeline;
+}
+
+@property (retain, nonatomic) IBOutlet UIImageView *preview;
+@property (retain, nonatomic) IBOutlet UIButton *recordButton;
+
+- (IBAction)onRecord:(id)sender;
 
 @end
