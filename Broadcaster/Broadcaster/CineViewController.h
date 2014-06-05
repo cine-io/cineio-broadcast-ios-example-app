@@ -15,6 +15,7 @@
 }
 
 @property (retain, nonatomic) IBOutlet UIImageView *preview;
+@property (retain, nonatomic) IBOutlet UIView *recordButtonContainer;
 @property (retain, nonatomic) IBOutlet UIButton *recordButton;
 
 - (IBAction)onRecord:(id)sender;

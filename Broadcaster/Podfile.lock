@@ -33,29 +33,30 @@ PODS:
   - boost/preprocessor-includes (1.51.0)
   - boost/shared_ptr-includes (1.51.0)
   - boost/string_algorithms-includes (1.51.0)
-  - cineio-ios (0.1.2):
+  - cineio-ios (0.1.3):
     - AFNetworking (~> 2.2.4)
   - glm (0.9.4.6)
-  - UriParser (0.1.0)
-  - VideoCore (0.1.0):
+  - UriParser-cpp (0.1.3)
+  - VideoCore (0.1.1):
     - boost (~> 1.51.0)
     - glm (~> 0.9.4.6)
-    - UriParser (~> 0.1.0)
+    - UriParser-cpp (~> 0.1.3)
 
 DEPENDENCIES:
-  - cineio-ios (from `/Users/jeffrey/dev/cine-dev/cineio-ios`)
-  - VideoCore (~> 0.1.0)
+  - cineio-ios (~> 0.1.3)
+  - VideoCore (from `https://github.com/cine-io/VideoCore.git`, branch `fix-cocoapod-namespace-collision`)
 
 EXTERNAL SOURCES:
-  cineio-ios:
-    :path: /Users/jeffrey/dev/cine-dev/cineio-ios
+  VideoCore:
+    :branch: fix-cocoapod-namespace-collision
+    :git: https://github.com/cine-io/VideoCore.git
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
   boost: 581038adda16d11045576013ad27e3eeeabc2d10
-  cineio-ios: 1cc7c8bd4e150d853e619d7a358331e2965dceaf
+  cineio-ios: cfcc5389a3bd9dac58336ddad72ae7a57a7b0d7c
   glm: 840dd35fe3cc445935accf81ffd1384dad532ee7
-  UriParser: 146d027d5992e21e96eadc43f97dbcc2871e316a
-  VideoCore: 65a3a65d741fd7505c2cf217c2164ead1f32c111
+  UriParser-cpp: e6df3fd87445ba4ab37a72acafb4f03bc39db524
+  VideoCore: a8dd90d50f62f29b79ad1e4cdb8d05a51e8f810a
 
 COCOAPODS: 0.33.1

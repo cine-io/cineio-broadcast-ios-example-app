@@ -16,16 +16,25 @@
     CineStream *_stream;
 }
 
--(void)setupCine:(NSDictionary *)settings;
 @end
 
 @implementation CineViewController
+
+@synthesize recordButton;
+@synthesize recordButtonContainer;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     // UI setup
+    recordButtonContainer.layer.cornerRadius = 36;
+    recordButtonContainer.layer.masksToBounds = YES;
+    recordButtonContainer.layer.borderWidth = 5.5;
+    recordButtonContainer.layer.borderColor = [[UIColor whiteColor] CGColor];
+    recordButton.layer.cornerRadius = 28;
+    recordButton.layer.masksToBounds = YES;
+    recordButton.enabled = NO;
     _recording = NO;
     [self.preview setContentMode:UIViewContentModeCenter];
     [self.preview setContentMode:UIViewContentModeScaleAspectFit];
@@ -34,20 +43,24 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"cineio-settings" ofType:@"plist"];
     NSDictionary *settings = [[NSDictionary alloc] initWithContentsOfFile:path];
     NSLog(@"settings: %@", settings);
-    [self setupCine:settings];
-}
-
-- (void)setupCine:(NSDictionary *)settings
-{
     _cine = [[CineClient alloc] initWithSecretKey:settings[@"CINE_IO_SECRET_KEY"]];
     [_cine getStreamsWithCompletionHandler:^(NSError *error, NSArray *streams) {
         _stream = (CineStream *)streams[0];
+        recordButton.enabled = YES;
     }];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (IBAction)onRecord:(id)sender
