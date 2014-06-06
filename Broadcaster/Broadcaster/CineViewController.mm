@@ -7,37 +7,37 @@
 //
 
 #import "CineViewController.h"
+#import "CineBroadcasterView.h"
 #import <cineio/CineIO.h>
 
 @interface CineViewController ()
 {
     CineClient *_cine;
     CineStream *_stream;
+    CineBroadcasterView *_view;
 }
 
 @end
 
 @implementation CineViewController
 
-@synthesize recordButton;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     // UI setup
-    recordButton.enabled = NO;
-    [self.preview setContentMode:UIViewContentModeCenter];
-    [self.preview setContentMode:UIViewContentModeScaleAspectFit];
+    _view = (CineBroadcasterView *)self.view;
 
     // cine.io setup
     NSString *path = [[NSBundle mainBundle] pathForResource:@"cineio-settings" ofType:@"plist"];
     NSDictionary *settings = [[NSDictionary alloc] initWithContentsOfFile:path];
     NSLog(@"settings: %@", settings);
     _cine = [[CineClient alloc] initWithSecretKey:settings[@"CINE_IO_SECRET_KEY"]];
+    _view.status.text = [NSString stringWithFormat:@"Getting cine.io stream info"];
     [_cine getStream:settings[@"CINE_IO_STREAM_ID"] withCompletionHandler:^(NSError *error, CineStream *stream) {
         _stream = stream;
-        recordButton.enabled = YES;
+        _view.recordButton.enabled = YES;
+        _view.status.text = [NSString stringWithFormat:@"Ready"];
     }];
 }
 
@@ -47,22 +47,36 @@
 }
 
 - (BOOL)shouldAutorotate {
-    return NO;
+    return YES;
 }
 
 - (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
+    return UIInterfaceOrientationMaskAll;
+}
+
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)orientation
+                               duration:(NSTimeInterval)duration {
+    // we don't want to animate during re-layout due to orientation changes
+    [UIView setAnimationsEnabled:NO];
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)orientation
+{
+    // once rotation is complete, turn animations back on
+    [UIView setAnimationsEnabled:YES];
 }
 
 - (IBAction)onRecord:(id)sender
 {
     NSLog(@"Record touched");
     
-    if (!recordButton.recording) {
-        recordButton.recording = YES;
+    if (!_view.recordButton.recording) {
+        _view.recordButton.recording = YES;
         NSString* rtmpUrl = [NSString stringWithFormat:@"%@/%@", [_stream publishUrl], [_stream publishStreamName]];
         
         NSLog(@"%@", rtmpUrl);
+        _view.status.text = [NSString stringWithFormat:@"Connecting to %@", rtmpUrl];
+
         
         pipeline.reset(new Broadcaster::CinePipeline([self](Broadcaster::SessionState state){
             [self connectionStatusChange:state];
@@ -73,12 +87,12 @@
             [self gotPixelBuffer: data withSize: size];
         });
         
-        float scr_w = self.preview.bounds.size.width;
-        float scr_h = self.preview.bounds.size.height;
+        float scr_w = _view.cameraView.bounds.size.width;
+        float scr_h = _view.cameraView.bounds.size.height;
         
         pipeline->startRtmpSession([rtmpUrl UTF8String], scr_w, scr_h, 500000 /* video bitrate */, 15 /* video fps */);
     } else {
-        recordButton.recording = NO;
+        _view.recordButton.recording = NO;
         // disconnect
         pipeline.reset();
     }
@@ -89,8 +103,10 @@
     NSLog(@"Connection status: %d", state);
     if(state == Broadcaster::kSessionStateStarted) {
         NSLog(@"Connected");
+        _view.status.text = [NSString stringWithFormat:@"Connected"];
     } else if(state == Broadcaster::kSessionStateError || state == Broadcaster::kSessionStateEnded) {
         NSLog(@"Disconnected");
+        _view.status.text = [NSString stringWithFormat:@"Disconnected"];
         pipeline.reset();
     }
 }
@@ -113,7 +129,7 @@
         UIImage *uiImage = [UIImage imageWithCGImage:videoImage];
         CVPixelBufferUnlockBaseAddress(pb, 0);
         
-        [self.preview performSelectorOnMainThread:@selector(setImage:) withObject:uiImage waitUntilDone:NO];
+        [_view.cameraView performSelectorOnMainThread:@selector(setImage:) withObject:uiImage waitUntilDone:NO];
         
         CGImageRelease(videoImage);
     }

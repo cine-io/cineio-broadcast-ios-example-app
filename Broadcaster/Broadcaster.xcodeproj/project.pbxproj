@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00321D3E1941256F0067A2DD /* CineRecordButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00321D3D1941256F0067A2DD /* CineRecordButtonView.m */; };
 		006605851940D13200871ACE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006605841940D13200871ACE /* QuartzCore.framework */; };
+		00AC3CFE19424A0A00475BE5 /* CineBroadcasterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AC3CFD19424A0A00475BE5 /* CineBroadcasterView.m */; };
 		00C5E167193FB3AC009DA7B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C5E166193FB3AC009DA7B9 /* Foundation.framework */; };
 		00C5E169193FB3AC009DA7B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C5E168193FB3AC009DA7B9 /* CoreGraphics.framework */; };
 		00C5E16B193FB3AC009DA7B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C5E16A193FB3AC009DA7B9 /* UIKit.framework */; };
@@ -47,6 +48,8 @@
 		00321D3C1941256F0067A2DD /* CineRecordButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CineRecordButtonView.h; sourceTree = "<group>"; };
 		00321D3D1941256F0067A2DD /* CineRecordButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CineRecordButtonView.m; sourceTree = "<group>"; };
 		006605841940D13200871ACE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		00AC3CFC19424A0A00475BE5 /* CineBroadcasterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CineBroadcasterView.h; sourceTree = "<group>"; };
+		00AC3CFD19424A0A00475BE5 /* CineBroadcasterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CineBroadcasterView.m; sourceTree = "<group>"; };
 		00C5E163193FB3AC009DA7B9 /* Broadcaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Broadcaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C5E166193FB3AC009DA7B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00C5E168193FB3AC009DA7B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -153,6 +156,8 @@
 				00C5E1A7193FBE7A009DA7B9 /* CinePipeline.cpp */,
 				00321D3C1941256F0067A2DD /* CineRecordButtonView.h */,
 				00321D3D1941256F0067A2DD /* CineRecordButtonView.m */,
+				00AC3CFC19424A0A00475BE5 /* CineBroadcasterView.h */,
+				00AC3CFD19424A0A00475BE5 /* CineBroadcasterView.m */,
 				00C5E17E193FB3AC009DA7B9 /* CineViewController.h */,
 				00C5E17F193FB3AC009DA7B9 /* CineViewController.mm */,
 				00C5E181193FB3AC009DA7B9 /* Images.xcassets */,
@@ -332,6 +337,7 @@
 			files = (
 				00C5E180193FB3AC009DA7B9 /* CineViewController.mm in Sources */,
 				00C5E173193FB3AC009DA7B9 /* main.m in Sources */,
+				00AC3CFE19424A0A00475BE5 /* CineBroadcasterView.m in Sources */,
 				00C5E1AC193FC3F2009DA7B9 /* CinePixelBufferOutput.cpp in Sources */,
 				00C5E177193FB3AC009DA7B9 /* CineAppDelegate.m in Sources */,
 				00321D3E1941256F0067A2DD /* CineRecordButtonView.m in Sources */,

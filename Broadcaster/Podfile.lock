@@ -36,6 +36,7 @@ PODS:
   - cineio-ios (0.1.3):
     - AFNetworking (~> 2.2.4)
   - glm (0.9.4.6)
+  - Masonry (0.5.2)
   - UriParser-cpp (0.1.3)
   - VideoCore (0.1.1):
     - boost (~> 1.51.0)
@@ -44,6 +45,7 @@ PODS:
 
 DEPENDENCIES:
   - cineio-ios (~> 0.1.3)
+  - Masonry (~> 0.5.2)
   - VideoCore (from `https://github.com/cine-io/VideoCore.git`, branch `fix-cocoapod-namespace-collision`)
 
 EXTERNAL SOURCES:
@@ -56,6 +58,7 @@ SPEC CHECKSUMS:
   boost: 581038adda16d11045576013ad27e3eeeabc2d10
   cineio-ios: cfcc5389a3bd9dac58336ddad72ae7a57a7b0d7c
   glm: 840dd35fe3cc445935accf81ffd1384dad532ee7
+  Masonry: ec0189e1a07af00913e4a1a335ea76887adc86e1
   UriParser-cpp: e6df3fd87445ba4ab37a72acafb4f03bc39db524
   VideoCore: a8dd90d50f62f29b79ad1e4cdb8d05a51e8f810a
 
