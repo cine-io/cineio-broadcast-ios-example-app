@@ -48,7 +48,7 @@
         self.buttonHeightConstraint.constant = 40;
         self.horizontalSpaceConstraint.constant = 16;
         self.verticalSpaceConstraint.constant = 16;
-        self.button.layer.cornerRadius = 10;
+        self.button.layer.cornerRadius = 8;
     } else {
         self.buttonWidthConstraint.constant = 56;
         self.buttonHeightConstraint.constant = 56;
