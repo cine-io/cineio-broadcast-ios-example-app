@@ -35,8 +35,8 @@
     NSDictionary *settings = [[NSDictionary alloc] initWithContentsOfFile:path];
     NSLog(@"settings: %@", settings);
     _cine = [[CineClient alloc] initWithSecretKey:settings[@"CINE_IO_SECRET_KEY"]];
-    [_cine getStreamsWithCompletionHandler:^(NSError *error, NSArray *streams) {
-        _stream = (CineStream *)streams[0];
+    [_cine getStream:settings[@"CINE_IO_STREAM_ID"] withCompletionHandler:^(NSError *error, CineStream *stream) {
+        _stream = stream;
         recordButton.enabled = YES;
     }];
 }

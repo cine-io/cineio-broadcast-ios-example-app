@@ -8,5 +8,7 @@
   <string>*** YOUR PUBLIC KEY GOES HERE ***</string>
   <key>CINE_IO_SECRET_KEY</key>
   <string>*** YOUR SECRET KEY GOES HERE ***</string>
+  <key>CINE_IO_STREAM_ID</key>
+  <string>*** YOUR STREAM ID GOES HERE ***</string>
 </dict>
 </plist>
