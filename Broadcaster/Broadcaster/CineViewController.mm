@@ -11,7 +11,6 @@
 
 @interface CineViewController ()
 {
-    BOOL _recording;
     CineClient *_cine;
     CineStream *_stream;
 }
@@ -21,21 +20,13 @@
 @implementation CineViewController
 
 @synthesize recordButton;
-@synthesize recordButtonContainer;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     // UI setup
-    recordButtonContainer.layer.cornerRadius = 36;
-    recordButtonContainer.layer.masksToBounds = YES;
-    recordButtonContainer.layer.borderWidth = 5.5;
-    recordButtonContainer.layer.borderColor = [[UIColor whiteColor] CGColor];
-    recordButton.layer.cornerRadius = 28;
-    recordButton.layer.masksToBounds = YES;
     recordButton.enabled = NO;
-    _recording = NO;
     [self.preview setContentMode:UIViewContentModeCenter];
     [self.preview setContentMode:UIViewContentModeScaleAspectFit];
 
@@ -67,10 +58,11 @@
 {
     NSLog(@"Record touched");
     
-    if (!_recording) {
-        _recording = YES;
-        [self.recordButton setTitle:@"C" forState:UIControlStateNormal];
+    if (!recordButton.recording) {
+        recordButton.recording = YES;
         NSString* rtmpUrl = [NSString stringWithFormat:@"%@/%@", [_stream publishUrl], [_stream publishStreamName]];
+        
+        NSLog(@"%@", rtmpUrl);
         
         pipeline.reset(new Broadcaster::CinePipeline([self](Broadcaster::SessionState state){
             [self connectionStatusChange:state];
@@ -86,10 +78,9 @@
         
         pipeline->startRtmpSession([rtmpUrl UTF8String], scr_w, scr_h, 500000 /* video bitrate */, 15 /* video fps */);
     } else {
-        _recording = NO;
+        recordButton.recording = NO;
         // disconnect
         pipeline.reset();
-        [self.recordButton setTitle:@"" forState:UIControlStateNormal];
     }
 }
 
@@ -98,11 +89,8 @@
     NSLog(@"Connection status: %d", state);
     if(state == Broadcaster::kSessionStateStarted) {
         NSLog(@"Connected");
-        [self.recordButton setTitle:@"O" forState:UIControlStateNormal];
-        [self.recordButton.titleLabel sizeToFit];
     } else if(state == Broadcaster::kSessionStateError || state == Broadcaster::kSessionStateEnded) {
         NSLog(@"Disconnected");
-        [self.recordButton setTitle:@"" forState:UIControlStateNormal];
         pipeline.reset();
     }
 }

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CinePipeline.h"
+#import "CineRecordButtonView.h"
 
 @interface CineViewController : UIViewController
 {
@@ -15,8 +16,7 @@
 }
 
 @property (retain, nonatomic) IBOutlet UIImageView *preview;
-@property (retain, nonatomic) IBOutlet UIView *recordButtonContainer;
-@property (retain, nonatomic) IBOutlet UIButton *recordButton;
+@property (retain, nonatomic) IBOutlet CineRecordButtonView *recordButton;
 
 - (IBAction)onRecord:(id)sender;
 

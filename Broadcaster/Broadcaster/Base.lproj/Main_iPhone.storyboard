@@ -21,14 +21,18 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4F-mM-LKA">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4F-mM-LKA" customClass="CineRecordButtonView">
                                 <rect key="frame" x="124" y="484" width="72" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20f-a6-tfN">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20f-a6-tfN">
                                         <rect key="frame" x="8" y="8" width="56" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="89s-fv-AsJ"/>
+                                            <constraint firstAttribute="width" constant="56" id="shJ-af-qfn"/>
+                                        </constraints>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -39,25 +43,34 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="20f-a6-tfN" secondAttribute="centerX" id="gMA-Or-IKJ"/>
-                                    <constraint firstAttribute="centerY" secondItem="20f-a6-tfN" secondAttribute="centerY" id="nuT-v3-2FN"/>
+                                    <constraint firstAttribute="centerY" secondItem="20f-a6-tfN" secondAttribute="centerY" id="Fjz-U2-Jb0"/>
+                                    <constraint firstItem="20f-a6-tfN" firstAttribute="top" secondItem="d4F-mM-LKA" secondAttribute="top" constant="8" id="Oop-g9-LuN"/>
+                                    <constraint firstItem="20f-a6-tfN" firstAttribute="leading" secondItem="d4F-mM-LKA" secondAttribute="leading" constant="8" id="aWa-Up-Zxk"/>
+                                    <constraint firstAttribute="centerX" secondItem="20f-a6-tfN" secondAttribute="centerX" id="rgd-3d-FGc"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="button" destination="20f-a6-tfN" id="5ki-Ka-oMO"/>
+                                    <outlet property="buttonHeightConstraint" destination="89s-fv-AsJ" id="JLj-Al-eiF"/>
+                                    <outlet property="buttonWidthConstraint" destination="shJ-af-qfn" id="e03-Ew-Rc1"/>
+                                    <outlet property="horizontalSpaceConstraint" destination="aWa-Up-Zxk" id="IMq-Yr-iOQ"/>
+                                    <outlet property="verticalSpaceConstraint" destination="Oop-g9-LuN" id="M8u-1D-z89"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4dk-qb-0JI" firstAttribute="top" secondItem="d4F-mM-LKA" secondAttribute="bottom" constant="12" id="ZMy-ey-Vfj"/>
-                            <constraint firstAttribute="centerX" secondItem="d4F-mM-LKA" secondAttribute="centerX" id="zyD-lV-Nnr"/>
+                            <constraint firstItem="4dk-qb-0JI" firstAttribute="top" secondItem="d4F-mM-LKA" secondAttribute="bottom" constant="12" id="6KJ-n9-4tO"/>
+                            <constraint firstAttribute="centerX" secondItem="d4F-mM-LKA" secondAttribute="centerX" id="90l-0Z-hGv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="preview" destination="3wk-0I-PrD" id="kxQ-oQ-RNy"/>
-                        <outlet property="recordButton" destination="20f-a6-tfN" id="Cy1-MK-wK2"/>
-                        <outlet property="recordButtonContainer" destination="d4F-mM-LKA" id="xfT-XF-lmr"/>
+                        <outlet property="recordButton" destination="d4F-mM-LKA" id="KB4-9x-LH4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-81" y="72"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
