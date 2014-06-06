@@ -31,6 +31,13 @@
 -(void)setEnabled:(BOOL)enabled
 {
     self.button.enabled = enabled;
+    if (enabled) {
+        self.layer.borderColor = [UIColor whiteColor].CGColor;
+        [self.button setBackgroundColor:[UIColor redColor]];
+    } else {
+        self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        [self.button setBackgroundColor:[UIColor grayColor]];
+    }
 }
 
 -(void)setRecording:(BOOL)recording
