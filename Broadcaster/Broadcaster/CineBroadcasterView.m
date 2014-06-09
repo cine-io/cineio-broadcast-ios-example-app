@@ -152,9 +152,9 @@
         {
             [statusView mas_makeConstraints:^(MASConstraintMaker *make) {
                 _statusViewHeight = make.height.equalTo(@40);
-                _statusViewTop = make.top.equalTo(statusView.superview.mas_top).with.offset(0+topOffset);
-                _statusViewRight = make.right.equalTo(statusView.superview.mas_right).with.offset(0);
-                _statusViewLeft = make.left.equalTo(statusView.superview.mas_left).with.offset(0);
+                _statusViewTop = make.top.equalTo(self.mas_top).with.offset(0+topOffset);
+                _statusViewRight = make.right.equalTo(self.mas_right).with.offset(0);
+                _statusViewLeft = make.left.equalTo(self.mas_left).with.offset(0);
             }];
         }
             break;
@@ -162,9 +162,9 @@
         {
             [statusView mas_makeConstraints:^(MASConstraintMaker *make) {
                 _statusViewHeight = make.height.equalTo(@40);
-                _statusViewRight = make.right.equalTo(statusView.superview.mas_right).with.offset(0);
-                _statusViewBottom = make.bottom.equalTo(statusView.superview.mas_bottom).with.offset(0);
-                _statusViewLeft = make.left.equalTo(statusView.superview.mas_left).with.offset(0);
+                _statusViewRight = make.right.equalTo(self.mas_right).with.offset(0);
+                _statusViewBottom = make.bottom.equalTo(self.mas_bottom).with.offset(0);
+                _statusViewLeft = make.left.equalTo(self.mas_left).with.offset(0);
             }];
         }
             break;
@@ -173,9 +173,9 @@
         {
             [statusView mas_makeConstraints:^(MASConstraintMaker *make) {
                 _statusViewHeight = make.height.equalTo(@40);
-                _statusViewTop = make.top.equalTo(statusView.superview.mas_top).with.offset(0+topOffset);
-                _statusViewRight = make.right.equalTo(statusView.superview.mas_right).with.offset(0);
-                _statusViewLeft = make.left.equalTo(statusView.superview.mas_left).with.offset(86);
+                _statusViewTop = make.top.equalTo(self.mas_top).with.offset(0+topOffset);
+                _statusViewRight = make.right.equalTo(self.mas_right).with.offset(0);
+                _statusViewLeft = make.left.equalTo(self.mas_left).with.offset(86);
             }];
         }
             break;
