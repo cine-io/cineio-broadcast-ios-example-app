@@ -141,11 +141,6 @@
     }
 }
 
-// Status Container:
-// - portrait normal: height=100%-86, width=100%, top=0, bottom=86, left=0, right=0
-// - landscape left: height=100%, width=100%-86, top=0, bottom=0, left=86, right=0
-// - portrait inverted: height=100%-86, width=100%, top=86, bottom=0, left=0, right=0
-// - landscape right: height=100%, width=100%-86, top=0, bottom=0, left=0, right=86
 - (void)updateConstraintsStatusContainerView:(UIInterfaceOrientation)orientation
 {
     [_statusContainerViewWidth uninstall];
@@ -162,7 +157,6 @@
         {
             [statusContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
                 _statusContainerViewWidth = make.width.equalTo(self.mas_width);
-                //_statusContainerViewHeight = make.height.equalTo([NSNumber numberWithInt:self.frame.size.height-86-topOffset]);
                 _statusContainerViewTop = make.top.equalTo(self.mas_top).with.offset(0+topOffset);
                 _statusContainerViewRight = make.right.equalTo(self.mas_right).with.offset(0);
                 _statusContainerViewBottom = make.bottom.equalTo(self.mas_bottom).with.offset(86);
@@ -206,12 +200,6 @@
     }
 }
 
-// Status View:
-// - portrait normal: height=40, width=100%, top=0, bottom=nil, left=0, right=0
-// - landscape: height=40, width=100%, top=0, bottom=nil, left=0, right=0
-// - portrait inverted: height=40, width=100%, top=nil, bottom=0, left=0, right=0
-
-//    [self.view adjustLayout:orientation];
 - (void)updateConstraintsStatusView:(UIInterfaceOrientation)orientation
 {
     [_statusViewWidth uninstall];
