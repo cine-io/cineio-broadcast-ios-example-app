@@ -13,7 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *cameraView;
 
-@property (weak, nonatomic) IBOutlet UIView *statusContainerView;
 @property (weak, nonatomic) IBOutlet UIView *statusView;
 @property (weak, nonatomic) IBOutlet UILabel *status;
 
