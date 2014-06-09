@@ -108,6 +108,8 @@
         NSLog(@"Disconnected");
         _view.status.text = [NSString stringWithFormat:@"Disconnected"];
         pipeline.reset();
+    } else {
+        NSLog(@"%u", state);
     }
 }
 
