@@ -8,6 +8,7 @@
 
 #import "CineViewController.h"
 #import <cineio/CineIO.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface CineViewController ()
 {
@@ -66,6 +67,8 @@
 {
     // once rotation is complete, turn animations back on
     [UIView setAnimationsEnabled:YES];
+    NSLog(@"broadcasterView: %.0fx%.0f", broadcasterView.frame.size.width, broadcasterView.frame.size.height);
+    NSLog(@"cameraView: %.0fx%.0f", broadcasterView.cameraView.frame.size.width, broadcasterView.cameraView.frame.size.height);
 }
 
 - (IBAction)onRecord:(id)sender
@@ -91,8 +94,8 @@
         
         float scr_w = broadcasterView.cameraView.bounds.size.width;
         float scr_h = broadcasterView.cameraView.bounds.size.height;
-        
-        pipeline->startRtmpSession([rtmpUrl UTF8String], scr_w, scr_h, 500000 /* video bitrate */, 15 /* video fps */);
+
+        pipeline->startRtmpSession([rtmpUrl UTF8String], scr_w, scr_h, 1500000 /* video bitrate */, 30 /* video fps */);
     } else {
         broadcasterView.recordButton.recording = NO;
         // disconnect
