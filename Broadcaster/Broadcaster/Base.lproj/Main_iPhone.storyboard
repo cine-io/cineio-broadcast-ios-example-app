@@ -63,8 +63,8 @@
                                     <constraint firstAttribute="centerY" secondItem="d4F-mM-LKA" secondAttribute="centerY" id="enp-zh-Vv8"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tl9-0j-Jh4" userLabel="Status Container View">
-                                <rect key="frame" x="0.0" y="20" width="320" height="466"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tl9-0j-Jh4" userLabel="Status Container View">
+                                <rect key="frame" x="0.0" y="20" width="320" height="462"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V8R-SO-Q2K" userLabel="Status View">
@@ -93,10 +93,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3wk-0I-PrD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Lfy-DQ-KpD"/>
-                            <constraint firstItem="3wk-0I-PrD" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="s8X-Ym-6qK"/>
-                            <constraint firstAttribute="trailing" secondItem="3wk-0I-PrD" secondAttribute="trailing" id="z2V-OG-piH"/>
-                            <constraint firstItem="4dk-qb-0JI" firstAttribute="top" secondItem="3wk-0I-PrD" secondAttribute="bottom" id="zsX-Bz-trj"/>
+                            <constraint firstItem="3wk-0I-PrD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="6fu-dW-o1Z"/>
+                            <constraint firstAttribute="trailing" secondItem="3wk-0I-PrD" secondAttribute="trailing" id="CpQ-AY-4hE"/>
+                            <constraint firstItem="tl9-0j-Jh4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" placeholder="YES" id="Gmt-SV-WVM"/>
+                            <constraint firstItem="tl9-0j-Jh4" firstAttribute="top" secondItem="iiJ-3a-sZu" secondAttribute="bottom" placeholder="YES" id="Qfb-bV-SIN"/>
+                            <constraint firstItem="3wk-0I-PrD" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="SlS-ZP-CHV"/>
+                            <constraint firstItem="4dk-qb-0JI" firstAttribute="top" secondItem="3wk-0I-PrD" secondAttribute="bottom" id="XCY-xW-pZi"/>
+                            <constraint firstItem="mn9-MI-c1m" firstAttribute="top" secondItem="tl9-0j-Jh4" secondAttribute="bottom" placeholder="YES" id="dEi-kf-VW1"/>
+                            <constraint firstAttribute="trailing" secondItem="tl9-0j-Jh4" secondAttribute="trailing" placeholder="YES" id="nTo-HN-pbJ"/>
                         </constraints>
                         <connections>
                             <outlet property="cameraView" destination="3wk-0I-PrD" id="6kV-c6-83q"/>

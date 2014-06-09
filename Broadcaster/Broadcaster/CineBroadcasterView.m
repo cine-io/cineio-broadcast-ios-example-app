@@ -62,6 +62,21 @@
 
 - (void)updateConstraints:(UIInterfaceOrientation)orientation
 {
+    switch (orientation) {
+        case UIInterfaceOrientationPortrait:
+            NSLog(@"portrait");
+            break;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            NSLog(@"portrait upside down");
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+            NSLog(@"landscape left");
+            break;
+        case UIInterfaceOrientationLandscapeRight:
+            NSLog(@"landscape right");
+            break;
+    }
+    
     [self updateConstraintsControlsView:orientation];
     [self updateConstraintsStatusContainerView:orientation];
     [self updateConstraintsStatusView:orientation];
@@ -81,7 +96,6 @@
     switch (orientation) {
         case UIInterfaceOrientationPortrait:
         {
-            NSLog(@"portrait");
             [controlsView mas_makeConstraints:^(MASConstraintMaker *make) {
                 _controlsViewWidth = make.width.equalTo(self.mas_width);
                 _controlsViewHeight = make.height.equalTo(@86);
@@ -93,7 +107,6 @@
             break;
         case UIInterfaceOrientationPortraitUpsideDown:
         {
-            NSLog(@"portrait upside down");
             [controlsView mas_makeConstraints:^(MASConstraintMaker *make) {
                 _controlsViewWidth = make.width.equalTo(self.mas_width);
                 _controlsViewHeight = make.height.equalTo(@86);
@@ -105,7 +118,6 @@
             break;
         case UIInterfaceOrientationLandscapeLeft:
         {
-            NSLog(@"portrait landscape left");
             [controlsView mas_makeConstraints:^(MASConstraintMaker *make) {
                 _controlsViewWidth = make.width.equalTo(@86);
                 _controlsViewHeight = make.height.equalTo(self.mas_height);
@@ -117,7 +129,6 @@
             break;
         case UIInterfaceOrientationLandscapeRight:
         {
-            NSLog(@"portrait landscape right");
             [controlsView mas_makeConstraints:^(MASConstraintMaker *make) {
                 _controlsViewWidth = make.width.equalTo(@86);
                 _controlsViewHeight = make.height.equalTo(self.mas_height);
@@ -149,10 +160,9 @@
     switch (orientation) {
         case UIInterfaceOrientationPortrait:
         {
-            NSLog(@"portrait");
             [statusContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
                 _statusContainerViewWidth = make.width.equalTo(self.mas_width);
-                _statusContainerViewHeight = make.height.equalTo([NSNumber numberWithInt:self.frame.size.width-86]);
+                //_statusContainerViewHeight = make.height.equalTo([NSNumber numberWithInt:self.frame.size.height-86-topOffset]);
                 _statusContainerViewTop = make.top.equalTo(self.mas_top).with.offset(0+topOffset);
                 _statusContainerViewRight = make.right.equalTo(self.mas_right).with.offset(0);
                 _statusContainerViewBottom = make.bottom.equalTo(self.mas_bottom).with.offset(86);
@@ -162,10 +172,8 @@
             break;
         case UIInterfaceOrientationPortraitUpsideDown:
         {
-            NSLog(@"portrait upside down");
             [statusContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
                 _statusContainerViewWidth = make.width.equalTo(self.mas_width);
-                _statusContainerViewHeight = make.height.equalTo([NSNumber numberWithInt:self.frame.size.width-86]);
                 _statusContainerViewTop = make.top.equalTo(self.mas_top).with.offset(86);
                 _statusContainerViewRight = make.right.equalTo(self.mas_right).with.offset(0);
                 _statusContainerViewBottom = make.bottom.equalTo(self.mas_bottom).with.offset(0);
@@ -175,9 +183,7 @@
             break;
         case UIInterfaceOrientationLandscapeLeft:
         {
-            NSLog(@"portrait landscape left");
             [statusContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
-                _statusContainerViewWidth = make.width.equalTo([NSNumber numberWithInt:self.frame.size.width-86]);
                 _statusContainerViewHeight = make.height.equalTo(self.mas_height);
                 _statusContainerViewTop = make.top.equalTo(self.mas_top).with.offset(0);
                 _statusContainerViewRight = make.right.equalTo(self.mas_right).with.offset(0);
@@ -188,9 +194,7 @@
             break;
         case UIInterfaceOrientationLandscapeRight:
         {
-            NSLog(@"portrait landscape right");
             [statusContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
-                _statusContainerViewWidth = make.width.equalTo([NSNumber numberWithInt:self.frame.size.width-86]);
                 _statusContainerViewHeight = make.height.equalTo(self.mas_height);
                 _statusContainerViewTop = make.top.equalTo(self.mas_top).with.offset(0);
                 _statusContainerViewRight = make.right.equalTo(self.mas_right).with.offset(86);
