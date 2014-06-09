@@ -59,4 +59,9 @@
 
 }
 
+- (CGSize)intrinsicContentSize
+{
+    return CGSizeMake(72.0, 72.0);
+}
+
 @end
