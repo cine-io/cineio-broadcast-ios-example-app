@@ -117,7 +117,6 @@
         CVPixelBufferRef pb = (CVPixelBufferRef) data;
         float width = CVPixelBufferGetWidth(pb);
         float height = CVPixelBufferGetHeight(pb);
-        NSLog(@"PixelBuffer size: %fx%f", width, height);
         CVPixelBufferLockBaseAddress(pb, 1);
         CIImage *ciImage = [CIImage imageWithCVPixelBuffer:pb];
         
