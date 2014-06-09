@@ -52,8 +52,6 @@
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     [self updateConstraints:orientation];
     [super updateConstraints];
-    [self.layer removeAllAnimations];
-    [self.controlsView.layer removeAllAnimations];
 }
 
 - (void)updateConstraints:(UIInterfaceOrientation)orientation
@@ -72,6 +70,8 @@
             NSLog(@"landscape right");
             break;
     }
+    
+    NSLog(@"broadcaster view: %.0fx%.0f @ %.0f,%.0f", self.frame.size.width, self.frame.size.height, self.frame.origin.x, self.frame.origin.y);
     
     [self updateConstraintsControlsView:orientation];
     [self updateConstraintsStatusView:orientation];
@@ -145,11 +145,11 @@
     [_statusViewBottom uninstall];
     [_statusViewLeft uninstall];
 
-    int topOffset = [UIApplication sharedApplication].statusBarFrame.size.height;
 
     switch (orientation) {
         case UIInterfaceOrientationPortrait:
         {
+            int topOffset = [UIApplication sharedApplication].statusBarFrame.size.height;
             [statusView mas_makeConstraints:^(MASConstraintMaker *make) {
                 _statusViewHeight = make.height.equalTo(@40);
                 _statusViewTop = make.top.equalTo(self.mas_top).with.offset(0+topOffset);
@@ -171,6 +171,7 @@
         case UIInterfaceOrientationLandscapeLeft:
         case UIInterfaceOrientationLandscapeRight:
         {
+            int topOffset = [UIApplication sharedApplication].statusBarFrame.size.width;
             [statusView mas_makeConstraints:^(MASConstraintMaker *make) {
                 _statusViewHeight = make.height.equalTo(@40);
                 _statusViewTop = make.top.equalTo(self.mas_top).with.offset(0+topOffset);

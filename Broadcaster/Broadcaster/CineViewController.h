@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "CinePipeline.h"
+#import "CineBroadcasterView.h"
 
 @interface CineViewController : UIViewController
 {
     std::unique_ptr<Broadcaster::CinePipeline> pipeline;
 }
+
+@property (weak, nonatomic) IBOutlet CineBroadcasterView *broadcasterView;
+
 
 - (IBAction)onRecord:(id)sender;
 

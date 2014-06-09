@@ -19,4 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIView *controlsView;
 @property (weak, nonatomic) IBOutlet CineRecordButtonView *recordButton;
 
+- (void)updateConstraints:(UIInterfaceOrientation)orientation;
+
 @end
