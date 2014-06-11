@@ -2,12 +2,6 @@
 
 Sample iOS application to demonstrate broadcasting to cine.io.
 
-## Status
-
-This project is not yet ready for production use, but is actively being
-developed. It should be good enough to get your started with cine.io iOS
-broadcasting.
-
 ## How to Use
 
 1. Clone the repository.
