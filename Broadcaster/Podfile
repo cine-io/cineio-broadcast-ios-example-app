@@ -1,8 +1,9 @@
 platform :ios, '6.0'
 
 pod 'cineio-ios', '~> 0.1.3'
-#pod 'cineio-ios', path: '/Users/jeffrey/dev/cine-dev/cineio-ios'
 
-pod 'VideoCore', git: 'https://github.com/cine-io/VideoCore.git', branch: 'fix-cocoapod-namespace-collision'
-#pod 'VideoCore', '~> 0.1.1'
+#pod 'VideoCore', '~> 0.1.3'
+# until this bug is fixed, use git: https://github.com/jamesghurley/VideoCore/issues/20
+pod 'VideoCore', git: 'https://github.com/jamesghurley/VideoCore.git'
+
 pod 'Masonry', '~> 0.5.2'

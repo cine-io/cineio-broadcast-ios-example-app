@@ -92,10 +92,7 @@
             [self gotPixelBuffer: data withSize: size];
         });
         
-        float scr_w = broadcasterView.cameraView.bounds.size.width;
-        float scr_h = broadcasterView.cameraView.bounds.size.height;
-
-        pipeline->startRtmpSession([rtmpUrl UTF8String], scr_w, scr_h, 1500000 /* video bitrate */, 30 /* video fps */);
+        pipeline->startRtmpSession([rtmpUrl UTF8String], 1280, 720, 1500000 /* video bitrate */, 30 /* video fps */);
     } else {
         broadcasterView.recordButton.recording = NO;
         // disconnect
