@@ -145,6 +145,7 @@ namespace Broadcaster {
             m_cameraSource = std::make_shared<videocore::iOS::CameraSource>(frame_w/2,frame_h/2, frame_w,frame_h, frame_w, frame_h, float(frame_w) / float(frame_h));
             std::dynamic_pointer_cast<videocore::iOS::CameraSource>(m_cameraSource)->setupCamera(30, false);
             m_cameraSource->setOutput(m_videoTransformChain.front());
+            std::dynamic_pointer_cast<videocore::iOS::CameraSource>(m_cameraSource)->setAspectMode(videocore::iOS::CameraSource::kAspectFill);
         }
         {
             // Add mic source
