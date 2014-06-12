@@ -46,7 +46,11 @@ PODS:
 DEPENDENCIES:
   - cineio-ios (~> 0.1.3)
   - Masonry (~> 0.5.2)
-  - VideoCore (~> 0.1.4)
+  - VideoCore (from `https://github.com/jamesghurley/VideoCore.git`)
+
+EXTERNAL SOURCES:
+  VideoCore:
+    :git: https://github.com/jamesghurley/VideoCore.git
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
@@ -55,6 +59,6 @@ SPEC CHECKSUMS:
   glm: 840dd35fe3cc445935accf81ffd1384dad532ee7
   Masonry: ec0189e1a07af00913e4a1a335ea76887adc86e1
   UriParser-cpp: e6df3fd87445ba4ab37a72acafb4f03bc39db524
-  VideoCore: ab8bdf54ca485dd2b0d0fd6598d366781a875e47
+  VideoCore: 14e053302b5413ab7aa7778a9232d4a64658a815
 
 COCOAPODS: 0.33.1

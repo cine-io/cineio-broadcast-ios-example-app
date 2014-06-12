@@ -97,6 +97,7 @@
         broadcasterView.recordButton.recording = NO;
         // disconnect
         pipeline.reset();
+        NSLog(@"Stopped");
     }
 }
 
