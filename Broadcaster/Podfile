@@ -2,7 +2,6 @@ platform :ios, '6.0'
 
 pod 'cineio-ios', '~> 0.1.3'
 
-#pod 'VideoCore', '~> 0.1.4'
-pod 'VideoCore', git: "https://github.com/jamesghurley/VideoCore.git"
+pod 'VideoCore', '~> 0.1.5'
 
 pod 'Masonry', '~> 0.5.2'
