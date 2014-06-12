@@ -98,6 +98,7 @@
         // disconnect
         pipeline.reset();
         NSLog(@"Stopped");
+        broadcasterView.status.text = @"Stopped";
     }
 }
 
