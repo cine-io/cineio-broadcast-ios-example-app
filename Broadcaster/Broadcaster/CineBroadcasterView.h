@@ -7,18 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CineRecordButtonView.h"
+#import "CineControlsView.h"
 
 @interface CineBroadcasterView : UIView
 
-@property (weak, nonatomic) IBOutlet UIImageView *cameraView;
+@property (nonatomic) UIImageView *cameraView;
 
-@property (weak, nonatomic) IBOutlet UIView *statusView;
-@property (weak, nonatomic) IBOutlet UILabel *status;
+@property (nonatomic) UIView *statusView;
+@property (nonatomic) UILabel *status;
 
-@property (weak, nonatomic) IBOutlet UIView *controlsView;
-@property (weak, nonatomic) IBOutlet CineRecordButtonView *recordButton;
-
-- (void)updateConstraints:(UIInterfaceOrientation)orientation;
+@property (nonatomic) CineControlsView *controlsView;
 
 @end

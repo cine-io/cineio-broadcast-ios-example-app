@@ -11,32 +11,44 @@
 @implementation CineRecordButtonView
 
 @synthesize recording = _recording;
+@synthesize button;
 
--(void)awakeFromNib
+- (id)initWithFrame:(CGRect)rect
 {
+    self = [super initWithFrame:rect];
+    
+    // set up UI
     self.layer.cornerRadius = 36;
     self.layer.masksToBounds = YES;
     self.layer.borderWidth = 5.5;
     self.layer.borderColor = [[UIColor whiteColor] CGColor];
-    self.button.layer.cornerRadius = 28;
-    self.button.layer.masksToBounds = YES;
-    self.button.enabled = YES;
+    
+    button = [[UIButton alloc] initWithFrame:CGRectMake(8, 8, 56, 56)];
+    button.backgroundColor = [UIColor redColor];
+    button.alpha = 1.0;
+    button.layer.cornerRadius = 28;
+    button.layer.masksToBounds = YES;
+    button.enabled = YES;
+    [self addSubview:button];
+    
+    return self;
 }
 
 -(BOOL)getEnabled
 {
-    return self.button.enabled;
+    return button.enabled;
 }
 
 -(void)setEnabled:(BOOL)enabled
 {
-    self.button.enabled = enabled;
+    button.enabled = enabled;
+    NSLog(@"button enabled? %d", enabled);
     if (enabled) {
         self.layer.borderColor = [UIColor whiteColor].CGColor;
-        [self.button setBackgroundColor:[UIColor redColor]];
+        button.backgroundColor = [UIColor redColor];
     } else {
         self.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        [self.button setBackgroundColor:[UIColor grayColor]];
+        button.backgroundColor = [UIColor grayColor];
     }
 }
 
@@ -44,17 +56,11 @@
 {
     _recording = recording;
     if (recording) {
-        self.buttonWidthConstraint.constant = 40;
-        self.buttonHeightConstraint.constant = 40;
-        self.horizontalSpaceConstraint.constant = 16;
-        self.verticalSpaceConstraint.constant = 16;
-        self.button.layer.cornerRadius = 8;
+        button.frame = CGRectMake(16, 16, 40, 40);
+        button.layer.cornerRadius = 8;
     } else {
-        self.buttonWidthConstraint.constant = 56;
-        self.buttonHeightConstraint.constant = 56;
-        self.horizontalSpaceConstraint.constant = 8;
-        self.verticalSpaceConstraint.constant = 8;
-        self.button.layer.cornerRadius = 28;
+        button.frame = CGRectMake(8, 8, 56, 56);
+        button.layer.cornerRadius = 28;
     }
 
 }

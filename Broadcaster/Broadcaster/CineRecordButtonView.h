@@ -13,10 +13,6 @@
 
 @property (nonatomic) BOOL enabled;
 @property (nonatomic) BOOL recording;
-@property (strong, nonatomic) IBOutlet UIButton *button;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonWidthConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *horizontalSpaceConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalSpaceConstraint;
+@property (nonatomic) UIButton *button;
 
 @end

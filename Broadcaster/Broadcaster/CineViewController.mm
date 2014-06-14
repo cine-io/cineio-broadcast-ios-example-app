@@ -25,6 +25,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.broadcasterView.controlsView.recordButton.button addTarget:self action:@selector(onRecord:) forControlEvents:UIControlEventTouchUpInside];
 
     // cine.io setup
     NSString *path = [[NSBundle mainBundle] pathForResource:@"cineio-settings" ofType:@"plist"];
@@ -34,7 +36,7 @@
     broadcasterView.status.text = [NSString stringWithFormat:@"Getting cine.io stream info"];
     [_cine getStream:settings[@"CINE_IO_STREAM_ID"] withCompletionHandler:^(NSError *error, CineStream *stream) {
         _stream = stream;
-        broadcasterView.recordButton.enabled = YES;
+        broadcasterView.controlsView.recordButton.enabled = YES;
         broadcasterView.status.text = [NSString stringWithFormat:@"Ready"];
     }];
 }
@@ -45,38 +47,19 @@
 }
 
 - (BOOL)shouldAutorotate {
-    return YES;
+    return NO;
 }
 
 - (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskAll;
-}
-
--(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)orientation
-                               duration:(NSTimeInterval)duration {
-    // we don't want to animate during re-layout due to orientation changes
-    [UIView setAnimationsEnabled:NO];
-}
-
--(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-                                        duration:(NSTimeInterval)duration {
-    [broadcasterView setNeedsUpdateConstraints];
-}
-
--(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)orientation
-{
-    // once rotation is complete, turn animations back on
-    [UIView setAnimationsEnabled:YES];
-    NSLog(@"broadcasterView: %.0fx%.0f", broadcasterView.frame.size.width, broadcasterView.frame.size.height);
-    NSLog(@"cameraView: %.0fx%.0f", broadcasterView.cameraView.frame.size.width, broadcasterView.cameraView.frame.size.height);
+    return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
 - (IBAction)onRecord:(id)sender
 {
     NSLog(@"Record touched");
     
-    if (!broadcasterView.recordButton.recording) {
-        broadcasterView.recordButton.recording = YES;
+    if (!broadcasterView.controlsView.recordButton.recording) {
+        broadcasterView.controlsView.recordButton.recording = YES;
         NSString* rtmpUrl = [NSString stringWithFormat:@"%@/%@", [_stream publishUrl], [_stream publishStreamName]];
         
         NSLog(@"%@", rtmpUrl);
@@ -94,7 +77,7 @@
         
         pipeline->startRtmpSession([rtmpUrl UTF8String], 1280, 720, 1500000 /* video bitrate */, 30 /* video fps */);
     } else {
-        broadcasterView.recordButton.recording = NO;
+        broadcasterView.controlsView.recordButton.recording = NO;
         // disconnect
         pipeline.reset();
         NSLog(@"Stopped");
