@@ -1,5 +1,5 @@
 
-#include "CinePipeline.h"
+#include "CineBroadcasterPipeline.h"
 
 #include <videocore/rtmp/RTMPSession.h>
 #include <videocore/transforms/RTMP/AACPacketizer.h>
@@ -25,7 +25,7 @@
 namespace Broadcaster {
 
     void
-    CinePipeline::startRtmpSession(std::string uri, int frame_w, int frame_h, int bitrate, int fps)
+    CineBroadcasterPipeline::startRtmpSession(std::string uri, int frame_w, int frame_h, int bitrate, int fps)
     {
 
         m_outputSession.reset( new videocore::RTMPSession ( uri, [=](videocore::RTMPSession& session, ClientState_t state) {
@@ -66,7 +66,7 @@ namespace Broadcaster {
         
     }
     void
-    CinePipeline::setupGraph( int frame_w, int frame_h, int fps, int bitrate)
+    CineBroadcasterPipeline::setupGraph( int frame_w, int frame_h, int fps, int bitrate)
     {
         
         m_audioTransformChain.clear();
@@ -156,7 +156,7 @@ namespace Broadcaster {
     }
 
     void
-    CinePipeline::addTransform(std::vector<std::shared_ptr<videocore::ITransform> > &chain, std::shared_ptr<videocore::ITransform> transform)
+    CineBroadcasterPipeline::addTransform(std::vector<std::shared_ptr<videocore::ITransform> > &chain, std::shared_ptr<videocore::ITransform> transform)
     {
         if( chain.size() > 0 ) {
             chain.back()->setOutput(transform);
@@ -166,7 +166,7 @@ namespace Broadcaster {
     }
 
     void
-    CinePipeline::setPBCallback(CinePixelBufferCallback callback)
+    CineBroadcasterPipeline::setPBCallback(CinePixelBufferCallback callback)
     {
         if(m_videoSplit && m_pbOutput) {
             m_videoSplit->removeOutput(m_pbOutput);

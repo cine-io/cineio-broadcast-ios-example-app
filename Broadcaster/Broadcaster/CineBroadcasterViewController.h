@@ -1,5 +1,5 @@
 //
-//  CineViewController.h
+//  CineBroadcasterViewController.h
 //  Broadcaster
 //
 //  Created by Jeffrey Wescott on 6/4/14.
@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CinePipeline.h"
+#import "CineBroadcasterPipeline.h"
 #import "CineBroadcasterView.h"
 
-@interface CineViewController : UIViewController
+@interface CineBroadcasterViewController : UIViewController
 {
-    std::unique_ptr<Broadcaster::CinePipeline> pipeline;
+    std::unique_ptr<Broadcaster::CineBroadcasterPipeline> pipeline;
 }
 
 @property (weak, nonatomic) IBOutlet CineBroadcasterView *broadcasterView;

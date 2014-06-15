@@ -23,10 +23,10 @@ namespace Broadcaster {
     
     using SessionStateCallback = std::function<void(SessionState state)>;
     
-    class CinePipeline {
+    class CineBroadcasterPipeline {
         public:
-            CinePipeline(SessionStateCallback callback) : m_callback(callback) {};
-            ~CinePipeline() {};
+            CineBroadcasterPipeline(SessionStateCallback callback) : m_callback(callback) {};
+            CineBroadcasterPipeline() {};
 
             
             void setPBCallback(CinePixelBufferCallback callback) ;
