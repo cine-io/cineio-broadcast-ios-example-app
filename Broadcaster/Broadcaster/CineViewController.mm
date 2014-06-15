@@ -70,7 +70,7 @@
         broadcasterView.status.text = [NSString stringWithFormat:@"Connecting to %@", rtmpUrl];
 
         
-        pipeline.reset(new Broadcaster::CinePipeline([self](Broadcaster::SessionState state){
+        pipeline.reset(new Broadcaster::CineBroadcasterPipeline([self](Broadcaster::SessionState state){
             [self connectionStatusChange:state];
         }));
         
