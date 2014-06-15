@@ -21,9 +21,17 @@
 @synthesize status;
 @synthesize controlsView;
 
+const NSInteger StatusViewHeight = 40;
+const NSInteger ControlsViewHeight = 86;
+
+
 - (void)awakeFromNib
 {
-    // set up UI
+    [self setupUI];
+}
+
+- (void)setupUI
+{
     self.backgroundColor = [UIColor clearColor];
     
     cameraView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
@@ -33,9 +41,8 @@
     
     UIColor *translucentBlack = [[UIColor alloc] initWithWhite:0.0 alpha:0.25];
     
-    statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 40)];
+    statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, StatusViewHeight)];
     statusView.backgroundColor = translucentBlack;
-    NSLog(@"statusView bounds: %.0fx%.0f @ %.0f,%.0f", statusView.bounds.size.width, statusView.bounds.size.height, statusView.bounds.origin.x, statusView.bounds.origin.y);
     status = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, statusView.bounds.size.width-20, 20)];
     status.backgroundColor = [UIColor clearColor];
     status.textColor = [UIColor whiteColor];
@@ -46,13 +53,13 @@
     status.text = @"Initializing";
     [statusView addSubview:status];
     
-    controlsView = [[CineBroadcasterControlsView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-86, self.bounds.size.width, 86)];
+    controlsView = [[CineBroadcasterControlsView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-ControlsViewHeight, self.bounds.size.width, ControlsViewHeight)];
     controlsView.backgroundColor = translucentBlack;
-
+    
     [self addSubview:cameraView];
     [self addSubview:statusView];
     [self addSubview:controlsView];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:(self) selector:@selector(orientationChanged) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
@@ -68,7 +75,7 @@
         {
             NSLog(@"portrait");
             rotation = 0;
-            statusFrame = CGRectMake(0, 0, self.bounds.size.width, 40);
+            statusFrame = CGRectMake(0, 0, self.bounds.size.width, StatusViewHeight);
             cameraFrame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
         }
             break;
@@ -76,7 +83,7 @@
         {
             NSLog(@"portrait upside down");
             rotation = M_PI;
-            statusFrame = CGRectMake(0, 0, self.bounds.size.width, 40);
+            statusFrame = CGRectMake(0, 0, self.bounds.size.width, StatusViewHeight);
             cameraFrame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
         }
             break;
@@ -84,7 +91,7 @@
         {
             NSLog(@"landscape left");
             rotation = M_PI_2;
-            statusFrame = CGRectMake(self.bounds.size.width-40, 0, 40, self.bounds.size.height-86);
+            statusFrame = CGRectMake(self.bounds.size.width-StatusViewHeight, 0, StatusViewHeight, self.bounds.size.height-ControlsViewHeight);
             cameraFrame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
         }
             break;
@@ -92,7 +99,7 @@
         {
             NSLog(@"landscape right");
             rotation = -M_PI_2;
-            statusFrame = CGRectMake(0, 0, 40, self.bounds.size.height-86);
+            statusFrame = CGRectMake(0, 0, StatusViewHeight, self.bounds.size.height-ControlsViewHeight);
             cameraFrame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
         }
             break;
