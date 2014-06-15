@@ -54,6 +54,10 @@
     return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
+- (BOOL) prefersStatusBarHidden {
+    return YES;
+}
+
 - (IBAction)onRecord:(id)sender
 {
     NSLog(@"Record touched");

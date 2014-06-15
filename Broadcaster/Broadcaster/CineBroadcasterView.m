@@ -24,8 +24,8 @@
 - (void)awakeFromNib
 {
     // set up UI
-    cameraView = [[UIImageView alloc] initWithFrame:[self orientedBounds]];
-    cameraView.backgroundColor = [UIColor blackColor];
+    cameraView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+    cameraView.backgroundColor = [UIColor clearColor];
     [cameraView setContentMode:UIViewContentModeCenter];
     [cameraView setContentMode:UIViewContentModeScaleAspectFit];
     
@@ -50,54 +50,68 @@
     [self addSubview:cameraView];
     [self addSubview:statusView];
     [self addSubview:controlsView];
+
+    [[NSNotificationCenter defaultCenter] addObserver:(self) selector:@selector(orientationChanged) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
-- (CGRect)orientedBounds
+- (void)orientationChanged
 {
-    UIView *rootView = [[[UIApplication sharedApplication] keyWindow]
-                        rootViewController].view;
-    CGRect originalFrame = [[UIScreen mainScreen] bounds];
-    CGRect adjustedFrame = [rootView convertRect:originalFrame fromView:nil];
-    return adjustedFrame;
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    double rotation = 0;
+    CGRect statusFrame = CGRectZero;
+    CGRect cameraFrame = CGRectZero;
+    
     switch (orientation) {
-        case UIInterfaceOrientationPortrait:
-        case UIInterfaceOrientationPortraitUpsideDown:
+        case UIDeviceOrientationPortrait:
         {
             NSLog(@"portrait");
-            [UIView performWithoutAnimation:^{
-                cameraView.frame = [self orientedBounds];
-                controlsView.frame = CGRectMake(0, 568-86, 320, 86);
-            }];
-            statusView.frame = CGRectMake(0, 20, 320, 40);
+            rotation = 0;
+            statusFrame = CGRectMake(0, 0, self.bounds.size.width, 40);
+            cameraFrame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
         }
             break;
-        case UIInterfaceOrientationLandscapeLeft:
+        case UIDeviceOrientationPortraitUpsideDown:
+        {
+            NSLog(@"portrait upside down");
+            rotation = M_PI;
+            statusFrame = CGRectMake(0, 0, self.bounds.size.width, 40);
+            cameraFrame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
+        }
+            break;
+        case UIDeviceOrientationLandscapeLeft:
         {
             NSLog(@"landscape left");
-            [UIView performWithoutAnimation:^{
-                cameraView.frame = [self orientedBounds];
-                controlsView.frame = CGRectMake(0, 0, 86, 320);
-            }];
-            statusView.frame = CGRectMake(86, 0, 568-86, 40);
+            rotation = M_PI_2;
+            statusFrame = CGRectMake(self.bounds.size.width-40, 0, 40, self.bounds.size.height-86);
+            cameraFrame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
         }
             break;
-        case UIInterfaceOrientationLandscapeRight:
+        case UIDeviceOrientationLandscapeRight:
         {
             NSLog(@"landscape right");
-            [UIView performWithoutAnimation:^{
-                cameraView.frame = [self orientedBounds];
-                controlsView.frame = CGRectMake(568-86, 0, 86, 320);
-            }];
-            statusView.frame = CGRectMake(0, 0, 568-86, 40);
+            rotation = -M_PI_2;
+            statusFrame = CGRectMake(0, 0, 40, self.bounds.size.height-86);
+            cameraFrame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
         }
             break;
+        case UIDeviceOrientationFaceDown:
+        case UIDeviceOrientationFaceUp:
+        case UIDeviceOrientationUnknown:
+        default:
+            return;
     }
+    
+    CGAffineTransform transform = CGAffineTransformMakeRotation(rotation);
+    [UIView animateWithDuration:0.4
+                          delay:0.0
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         cameraView.transform = statusView.transform = transform;
+                         cameraView.frame = cameraFrame;
+                         statusView.frame = statusFrame;
+                     }
+                     completion:nil];
+    
 }
 
 @end
