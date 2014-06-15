@@ -35,9 +35,14 @@
     _cine = [[CineClient alloc] initWithSecretKey:settings[@"CINE_IO_SECRET_KEY"]];
     broadcasterView.status.text = [NSString stringWithFormat:@"Getting cine.io stream info"];
     [_cine getStream:settings[@"CINE_IO_STREAM_ID"] withCompletionHandler:^(NSError *error, CineStream *stream) {
-        _stream = stream;
-        broadcasterView.controlsView.recordButton.enabled = YES;
-        broadcasterView.status.text = [NSString stringWithFormat:@"Ready"];
+        if (error) {
+            NSLog(@"Couldn't get stream information from cine.io.");
+            broadcasterView.status.text = @"ERROR: couldn't get stream information from cine.io";
+        } else {
+            _stream = stream;
+            broadcasterView.controlsView.recordButton.enabled = YES;
+            broadcasterView.status.text = @"Ready";
+        }
     }];
 }
 
