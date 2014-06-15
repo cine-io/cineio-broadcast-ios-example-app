@@ -2,6 +2,8 @@ platform :ios, '6.0'
 
 pod 'cineio-ios', '~> 0.1.3'
 
-pod 'VideoCore', '~> 0.1.5'
+#pod 'VideoCore', '~> 0.1.6'
+#pod 'VideoCore', path: '/Users/jeffrey/dev/cine-dev/VideoCore'
+pod 'VideoCore', git: 'https://github.com/cine-io/VideoCore.git'
 
 pod 'Masonry', '~> 0.5.2'
