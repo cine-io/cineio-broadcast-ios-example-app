@@ -24,6 +24,8 @@
 - (void)awakeFromNib
 {
     // set up UI
+    self.backgroundColor = [UIColor clearColor];
+    
     cameraView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
     cameraView.backgroundColor = [UIColor clearColor];
     [cameraView setContentMode:UIViewContentModeCenter];

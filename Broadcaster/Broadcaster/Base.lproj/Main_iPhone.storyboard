@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Cine View Controller-->
+        <!--Cine Broadcaster View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="CineViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="CineBroadcasterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oNz-Ei-NMz"/>
                         <viewControllerLayoutGuide type="bottom" id="YMV-Eg-jok"/>
@@ -15,7 +15,7 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="CineBroadcasterView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>

@@ -34,7 +34,7 @@
         {
             NSLog(@"portrait");
             [UIView performWithoutAnimation:^{
-                recordButton.frame = CGRectMake(320 / 2 - 36, 7, 72, 72);
+                recordButton.frame = CGRectMake(self.center.x - 36, 7, 72, 72);
             }];
         }
             break;
@@ -42,7 +42,7 @@
         {
             NSLog(@"landscape left");
             [UIView performWithoutAnimation:^{
-                recordButton.frame = CGRectMake(7, 320 / 2 - 36, 72, 72);
+                recordButton.frame = CGRectMake(7, self.center.y - 36, 72, 72);
             }];
         }
             break;
@@ -50,7 +50,7 @@
         {
             NSLog(@"landscape right");
             [UIView performWithoutAnimation:^{
-                recordButton.frame = CGRectMake(7, 320 / 2 - 36, 72, 72);
+                recordButton.frame = CGRectMake(7, self.center.y - 36, 72, 72);
             }];
         }
             break;

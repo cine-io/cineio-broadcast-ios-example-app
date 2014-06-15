@@ -1,5 +1,5 @@
 //
-//  CineViewController.h
+//  CineBroadcasterViewController.h
 //  Broadcaster
 //
 //  Created by Jeffrey Wescott on 6/4/14.
@@ -10,7 +10,7 @@
 #import "CineBroadcasterPipeline.h"
 #import "CineBroadcasterView.h"
 
-@interface CineViewController : UIViewController
+@interface CineBroadcasterViewController : UIViewController
 {
     std::unique_ptr<Broadcaster::CineBroadcasterPipeline> pipeline;
 }
