@@ -1,5 +1,5 @@
 //
-//  CineControlsView.h
+//  CineBroadcasterControlsView.h
 //  Broadcaster
 //
 //  Created by Jeffrey Wescott on 6/13/14.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CineRecordButtonView.h"
 
-@interface CineControlsView : UIView
+@interface CineBroadcasterControlsView : UIView
 
 @property (nonatomic) CineRecordButtonView *recordButton;
 

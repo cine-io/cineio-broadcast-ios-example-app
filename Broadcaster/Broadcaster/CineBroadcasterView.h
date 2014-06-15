@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CineControlsView.h"
+#import "CineBroadcasterControlsView.h"
 
 @interface CineBroadcasterView : UIView
 
@@ -16,6 +16,6 @@
 @property (nonatomic) UIView *statusView;
 @property (nonatomic) UILabel *status;
 
-@property (nonatomic) CineControlsView *controlsView;
+@property (nonatomic) CineBroadcasterControlsView *controlsView;
 
 @end

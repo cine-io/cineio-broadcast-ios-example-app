@@ -44,7 +44,7 @@
     status.text = @"Initializing";
     [statusView addSubview:status];
     
-    controlsView = [[CineControlsView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-86, self.bounds.size.width, 86)];
+    controlsView = [[CineBroadcasterControlsView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-86, self.bounds.size.width, 86)];
     controlsView.backgroundColor = translucentBlack;
 
     [self addSubview:cameraView];
