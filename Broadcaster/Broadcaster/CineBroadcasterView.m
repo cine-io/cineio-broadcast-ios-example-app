@@ -30,6 +30,14 @@ const NSInteger ControlsViewHeight = 86;
     [self setupUI];
 }
 
+- (id)initWithFrame:(CGRect)aRect
+{
+    self = [super initWithFrame:aRect];
+    [self setupUI];
+
+    return self;
+}
+
 - (void)setupUI
 {
     self.backgroundColor = [UIColor clearColor];
