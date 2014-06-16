@@ -55,15 +55,11 @@
     return NO;
 }
 
-- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskAllButUpsideDown;
-}
-
 - (BOOL) prefersStatusBarHidden {
     return YES;
 }
 
-- (IBAction)onRecord:(id)sender
+- (void)onRecord:(id)sender
 {
     NSLog(@"Record touched");
     

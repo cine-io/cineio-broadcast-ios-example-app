@@ -18,6 +18,6 @@
 @property (weak, nonatomic) IBOutlet CineBroadcasterView *broadcasterView;
 
 
-- (IBAction)onRecord:(id)sender;
+- (void)onRecord:(id)sender;
 
 @end
