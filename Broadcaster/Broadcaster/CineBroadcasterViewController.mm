@@ -104,7 +104,6 @@
 }
 
 - (void) gotPixelBuffer: (const uint8_t* const) data withSize: (size_t) size {
-    // TODO (JW): need this @autoreleasepool?
     @autoreleasepool {
         CVPixelBufferRef pb = (CVPixelBufferRef) data;
         float width = CVPixelBufferGetWidth(pb);
