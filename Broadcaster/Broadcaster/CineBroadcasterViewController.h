@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CineBroadcasterProtocol.h"
 #import "CineBroadcasterPipeline.h"
 #import "CineBroadcasterView.h"
 
-@interface CineBroadcasterViewController : UIViewController
+@interface CineBroadcasterViewController : UIViewController <CineBroadcasterProtocol>
 {
     std::unique_ptr<Broadcaster::CineBroadcasterPipeline> pipeline;
 }
@@ -18,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet CineBroadcasterView *broadcasterView;
 
 
-- (void)onRecord:(id)sender;
+- (void)toggleStreaming:(id)sender;
 - (void)updateStatus:(NSString *)message;
 
 @end

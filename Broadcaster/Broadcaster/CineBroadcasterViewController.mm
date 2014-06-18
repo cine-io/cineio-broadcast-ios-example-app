@@ -12,6 +12,7 @@
 
 @interface CineBroadcasterViewController ()
 {
+    // BELONGS IN SUBCLASS
     CineClient *_cine;
     CineStream *_stream;
 }
@@ -20,13 +21,30 @@
 
 @implementation CineBroadcasterViewController
 
+// BELONGS IN SUBCLASS
+@synthesize frameWidth;
+@synthesize frameHeight;
+@synthesize framesPerSecond;
+@synthesize videoBitRate;
+@synthesize numAudioChannels;
+@synthesize sampleRateInHz;
+
 @synthesize broadcasterView;
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self.broadcasterView.controlsView.recordButton.button addTarget:self action:@selector(onRecord:) forControlEvents:UIControlEventTouchUpInside];
+    [self.broadcasterView.controlsView.recordButton.button addTarget:self action:@selector(toggleStreaming:) forControlEvents:UIControlEventTouchUpInside];
+    
+    // AV setup -- BELONGS IN SUBCLASS
+    self.frameWidth = 1280;
+    self.frameHeight = 720;
+    self.framesPerSecond = 30;
+    self.videoBitRate = 1500000;
+    self.numAudioChannels = 2;
+    self.sampleRateInHz = 44100;
 
     // cine.io setup -- BELONGS IN SUBCLASS
     NSString *path = [[NSBundle mainBundle] pathForResource:@"cineio-settings" ofType:@"plist"];
@@ -58,9 +76,9 @@
     return YES;
 }
 
-- (void)onRecord:(id)sender
+- (void)toggleStreaming:(id)sender
 {
-    NSLog(@"Record touched");
+    NSLog(@"record / stop button touched");
     
     if (!broadcasterView.controlsView.recordButton.recording) {
         broadcasterView.controlsView.recordButton.recording = YES;
@@ -79,7 +97,7 @@
             [self gotPixelBuffer: data withSize: size];
         });
         
-        pipeline->startRtmpSession([rtmpUrl UTF8String], 1280, 720, 1500000 /* video bitrate */, 30 /* video fps */, 2, 44100);
+        pipeline->startRtmpSession([rtmpUrl UTF8String], self.frameWidth, self.frameHeight, self.videoBitRate, self.framesPerSecond, self.numAudioChannels, self.sampleRateInHz);
     } else {
         [self updateStatus:@"Stopping ..."];
         broadcasterView.controlsView.recordButton.recording = NO;

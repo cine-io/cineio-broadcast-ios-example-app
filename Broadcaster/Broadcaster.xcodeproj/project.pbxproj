@@ -46,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0025956619512A60005E2510 /* CineBroadcasterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CineBroadcasterProtocol.h; sourceTree = "<group>"; };
 		00321D3C1941256F0067A2DD /* CineRecordButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CineRecordButtonView.h; sourceTree = "<group>"; };
 		00321D3D1941256F0067A2DD /* CineRecordButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CineRecordButtonView.m; sourceTree = "<group>"; };
 		006605841940D13200871ACE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -165,6 +166,7 @@
 				00AC3CFD19424A0A00475BE5 /* CineBroadcasterView.m */,
 				00C5E17E193FB3AC009DA7B9 /* CineBroadcasterViewController.h */,
 				00C5E17F193FB3AC009DA7B9 /* CineBroadcasterViewController.mm */,
+				0025956619512A60005E2510 /* CineBroadcasterProtocol.h */,
 				00C5E181193FB3AC009DA7B9 /* Images.xcassets */,
 				00C5E16D193FB3AC009DA7B9 /* Supporting Files */,
 			);
