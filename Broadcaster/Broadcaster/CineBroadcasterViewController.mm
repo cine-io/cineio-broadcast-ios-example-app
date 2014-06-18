@@ -33,15 +33,14 @@
     NSDictionary *settings = [[NSDictionary alloc] initWithContentsOfFile:path];
     NSLog(@"settings: %@", settings);
     _cine = [[CineClient alloc] initWithSecretKey:settings[@"CINE_IO_SECRET_KEY"]];
-    broadcasterView.status.text = [NSString stringWithFormat:@"Getting cine.io stream info"];
+    [self updateStatus:@"Configuring stream ..."];
     [_cine getStream:settings[@"CINE_IO_STREAM_ID"] withCompletionHandler:^(NSError *error, CineStream *stream) {
         if (error) {
-            NSLog(@"Couldn't get stream information from cine.io.");
-            broadcasterView.status.text = @"ERROR: couldn't get stream information from cine.io";
+            [self updateStatus:@"ERROR: couldn't get stream information from cine.io"];
         } else {
             _stream = stream;
             broadcasterView.controlsView.recordButton.enabled = YES;
-            broadcasterView.status.text = @"Ready";
+            [self updateStatus:@"Ready"];
         }
     }];
 }
@@ -67,8 +66,8 @@
         broadcasterView.controlsView.recordButton.recording = YES;
         NSString* rtmpUrl = [NSString stringWithFormat:@"%@/%@", [_stream publishUrl], [_stream publishStreamName]];
         
-        NSLog(@"%@", rtmpUrl);
-        broadcasterView.status.text = @"Connecting to server ...";
+        NSLog(@"RTMP URL: %@", rtmpUrl);
+        [self updateStatus:@"Connecting to server ..."];
 
         
         pipeline.reset(new Broadcaster::CineBroadcasterPipeline([self](Broadcaster::SessionState state){
@@ -82,25 +81,29 @@
         
         pipeline->startRtmpSession([rtmpUrl UTF8String], 1280, 720, 1500000 /* video bitrate */, 30 /* video fps */, 2, 44100);
     } else {
-        NSLog(@"Stopping ...");
-        broadcasterView.status.text = @"Stopping ...";
+        [self updateStatus:@"Stopping ..."];
         broadcasterView.controlsView.recordButton.recording = NO;
         // disconnect
         pipeline.reset();
-        NSLog(@"Stopped");
-        broadcasterView.status.text = @"Stopped";
+        [self updateStatus:@"Stopped"];
     }
+}
+
+- (void)updateStatus:(NSString *)message
+{
+    NSLog(@"%@", message);
+    broadcasterView.status.text = message;
 }
 
 - (void) connectionStatusChange:(Broadcaster::SessionState) state
 {
-    NSLog(@"Connection status: %d", state);
     if(state == Broadcaster::kSessionStateStarted) {
-        NSLog(@"Streaming");
-        broadcasterView.status.text = @"Streaming";
-    } else if(state == Broadcaster::kSessionStateError || state == Broadcaster::kSessionStateEnded) {
-        NSLog(@"Disconnected");
-        broadcasterView.status.text = @"Disconnected";
+        [self updateStatus:@"Streaming"];
+    } else if(state == Broadcaster::kSessionStateError) {
+        [self updateStatus:@"Couldn't connect to server"];
+        pipeline.reset();
+    } else if (state == Broadcaster::kSessionStateEnded) {
+        [self updateStatus:@"Disconnected"];
         pipeline.reset();
     }
 }

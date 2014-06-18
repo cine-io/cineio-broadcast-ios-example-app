@@ -19,5 +19,6 @@
 
 
 - (void)onRecord:(id)sender;
+- (void)updateStatus:(NSString *)message;
 
 @end
