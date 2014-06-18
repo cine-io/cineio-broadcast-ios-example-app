@@ -28,7 +28,7 @@
     
     [self.broadcasterView.controlsView.recordButton.button addTarget:self action:@selector(onRecord:) forControlEvents:UIControlEventTouchUpInside];
 
-    // cine.io setup
+    // cine.io setup -- BELONGS IN SUBCLASS
     NSString *path = [[NSBundle mainBundle] pathForResource:@"cineio-settings" ofType:@"plist"];
     NSDictionary *settings = [[NSDictionary alloc] initWithContentsOfFile:path];
     NSLog(@"settings: %@", settings);
@@ -68,7 +68,7 @@
         NSString* rtmpUrl = [NSString stringWithFormat:@"%@/%@", [_stream publishUrl], [_stream publishStreamName]];
         
         NSLog(@"%@", rtmpUrl);
-        broadcasterView.status.text = [NSString stringWithFormat:@"Connecting to %@", rtmpUrl];
+        broadcasterView.status.text = @"Connecting to server ...";
 
         
         pipeline.reset(new Broadcaster::CineBroadcasterPipeline([self](Broadcaster::SessionState state){
@@ -82,6 +82,8 @@
         
         pipeline->startRtmpSession([rtmpUrl UTF8String], 1280, 720, 1500000 /* video bitrate */, 30 /* video fps */, 2, 44100);
     } else {
+        NSLog(@"Stopping ...");
+        broadcasterView.status.text = @"Stopping ...";
         broadcasterView.controlsView.recordButton.recording = NO;
         // disconnect
         pipeline.reset();
@@ -94,11 +96,11 @@
 {
     NSLog(@"Connection status: %d", state);
     if(state == Broadcaster::kSessionStateStarted) {
-        NSLog(@"Connected");
-        broadcasterView.status.text = [NSString stringWithFormat:@"Connected"];
+        NSLog(@"Streaming");
+        broadcasterView.status.text = @"Streaming";
     } else if(state == Broadcaster::kSessionStateError || state == Broadcaster::kSessionStateEnded) {
         NSLog(@"Disconnected");
-        broadcasterView.status.text = [NSString stringWithFormat:@"Disconnected"];
+        broadcasterView.status.text = @"Disconnected";
         pipeline.reset();
     }
 }
