@@ -1,6 +1,7 @@
 # cineio-broadcaster-ios
 
-Sample iOS application to demonstrate broadcasting to cine.io.
+Sample iOS application to demonstrate broadcasting using the [cine.io iOS
+SDK][https://github.com/cine-io/cineio-ios].
 
 ## How to Use
 
