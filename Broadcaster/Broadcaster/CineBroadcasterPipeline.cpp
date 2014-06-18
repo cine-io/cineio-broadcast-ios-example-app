@@ -6,26 +6,18 @@
 #include <videocore/transforms/RTMP/H264Packetizer.h>
 #include <videocore/transforms/Split.h>
 
-#ifdef __APPLE__
-#   include <videocore/mixers/Apple/AudioMixer.h>
-#   ifdef TARGET_OS_IPHONE
-#       include <videocore/sources/iOS/CameraSource.h>
-#       include <videocore/sources/iOS/MicSource.h>
-#       include <videocore/mixers/iOS/GLESVideoMixer.h>
-#       include <videocore/transforms/iOS/AACEncode.h>
-#       include <videocore/transforms/iOS/H264Encode.h>
-
-#   else /* OS X */
-
-#   endif
-#else
-#   include <videocore/mixers/GenericAudioMixer.h>
-#endif
+#include <videocore/mixers/Apple/AudioMixer.h>
+#include <videocore/sources/iOS/CameraSource.h>
+#include <videocore/sources/iOS/MicSource.h>
+#include <videocore/mixers/iOS/GLESVideoMixer.h>
+#include <videocore/transforms/iOS/AACEncode.h>
+#include <videocore/transforms/iOS/H264Encode.h>
 
 namespace Broadcaster {
-
+    
     void
-    CineBroadcasterPipeline::startRtmpSession(std::string uri, int frame_w, int frame_h, int bitrate, int fps)
+    CineBroadcasterPipeline::startRtmpSession(std::string uri, int frameWidth, int frameHeight, int bitRate, int fps,
+                                              int channelCount, int sampleRateHz)
     {
 
         m_outputSession.reset( new videocore::RTMPSession ( uri, [=](videocore::RTMPSession& session, ClientState_t state) {
@@ -37,7 +29,7 @@ namespace Broadcaster {
                     std::cout << "RTMP Started\n";
                     this->m_state = kSessionStateStarted;
                     
-                    this->setupGraph(frame_w, frame_h, fps, bitrate);
+                    this->setupGraph(frameWidth, frameHeight, fps, bitRate, channelCount, sampleRateHz);
                     
                     this->m_callback(kSessionStateStarted) ;
                 }
@@ -58,74 +50,53 @@ namespace Broadcaster {
             }
             
         }) );
-        videocore::RTMPSessionParameters_t sp ( 0. );
+        videocore::RTMPSessionParameters_t sp(0.);
         
-        sp.setData(frame_w, frame_h, 1. / static_cast<double>(fps), bitrate, 44100);
+        sp.setData(frameWidth, frameHeight, 1. / static_cast<double>(fps), bitRate, 44100);
         
         m_outputSession->setSessionParameters(sp);
-        
     }
+    
     void
-    CineBroadcasterPipeline::setupGraph( int frame_w, int frame_h, int fps, int bitrate)
+    CineBroadcasterPipeline::setupGraph(int frameWidth, int frameHeight, int fps, int bitRate,
+                                        int channelCount, int sampleRateHz)
     {
-        
         m_audioTransformChain.clear();
         m_videoTransformChain.clear();
         
-        
         {
             // Add audio mixer
-            const double aacPacketTime = 1024. / 44100.0;
-            
-#ifdef __APPLE__
-            addTransform(m_audioTransformChain, std::make_shared<videocore::Apple::AudioMixer>(2,44100,16,aacPacketTime));
-#else
-            addTransform(m_audioTransformChain, std::make_shared<videocore::GenericAudioMixer>(2,44100,16,aacPacketTime));
-#endif
+            // int outChannelCount, int outFrequencyInHz, int outBitsPerChannel, double frameDuration
+            const double aacPacketTime = 1024. / sampleRateHz;
+            addTransform(m_audioTransformChain,
+                         std::make_shared<videocore::Apple::AudioMixer>(channelCount, sampleRateHz, 16, aacPacketTime));
         }
-#ifdef __APPLE__
-#ifdef TARGET_OS_IPHONE
-        
-        
         {
             // Add video mixer
-            auto mixer = std::make_shared<videocore::iOS::GLESVideoMixer>(frame_w, frame_h, 1. / static_cast<double>(fps));
+            auto mixer = std::make_shared<videocore::iOS::GLESVideoMixer>(frameWidth, frameHeight, 1. / static_cast<double>(fps));
             addTransform(m_videoTransformChain, mixer);
-
-            
+        }
+        {
+            // Add splits
+            // Splits would be used to add different graph branches at various stages. For example, if you wish to record an
+            // MP4 file while streaming to RTMP.
+            auto videoSplit = std::make_shared<videocore::Split>();
+            m_videoSplit = videoSplit;
+            addTransform(m_videoTransformChain, videoSplit);
         }
         
-        {
-            // [Optional] add splits
-            // Splits would be used to add different graph branches at various
-            // stages.  For example, if you wish to record an MP4 file while
-            // streaming to RTMP.
-            
-            auto videoSplit = std::make_shared<videocore::Split>();
-            
-            m_videoSplit = videoSplit;
-            
-            addTransform(m_videoTransformChain, videoSplit);
-            
-        }
         if(m_pbOutput) {
             m_videoSplit->setOutput(m_pbOutput);
         }
         
         {
             // Add encoders
-            addTransform(m_audioTransformChain, std::make_shared<videocore::iOS::AACEncode>(44100, 2));
-            addTransform(m_videoTransformChain, std::make_shared<videocore::iOS::H264Encode>(frame_w, frame_h, fps, bitrate));
-            
+            addTransform(m_audioTransformChain, std::make_shared<videocore::iOS::AACEncode>(sampleRateHz, channelCount));
+            addTransform(m_videoTransformChain, std::make_shared<videocore::iOS::H264Encode>(frameWidth, frameHeight, fps, bitRate));
         }
-
-#else
-#endif // TARGET_OS_IPHONE
-#endif // __APPLE__
         
         addTransform(m_audioTransformChain, std::make_shared<videocore::rtmp::AACPacketizer>());
         addTransform(m_videoTransformChain, std::make_shared<videocore::rtmp::H264Packetizer>());
-        
         
         m_videoTransformChain.back()->setOutput(this->m_outputSession);
         m_audioTransformChain.back()->setOutput(this->m_outputSession);
@@ -142,8 +113,8 @@ namespace Broadcaster {
         // Create sources
         {   
             // Add camera source
-            m_cameraSource = std::make_shared<videocore::iOS::CameraSource>(frame_w/2,frame_h/2, frame_w,frame_h, frame_w, frame_h, float(frame_w) / float(frame_h));
-            std::dynamic_pointer_cast<videocore::iOS::CameraSource>(m_cameraSource)->setupCamera(30, false);
+            m_cameraSource = std::make_shared<videocore::iOS::CameraSource>(frameWidth/2, frameHeight/2, frameWidth, frameHeight, frameWidth, frameHeight, float(frameWidth) / float(frameHeight));
+            std::dynamic_pointer_cast<videocore::iOS::CameraSource>(m_cameraSource)->setupCamera(fps, false);
             m_cameraSource->setOutput(m_videoTransformChain.front());
             std::dynamic_pointer_cast<videocore::iOS::CameraSource>(m_cameraSource)->setAspectMode(videocore::iOS::CameraSource::kAspectFill);
         }
@@ -151,7 +122,6 @@ namespace Broadcaster {
             // Add mic source
             m_micSource = std::make_shared<videocore::iOS::MicSource>();
             m_micSource->setOutput(m_audioTransformChain.front());
-            
         }
     }
 
@@ -162,7 +132,6 @@ namespace Broadcaster {
             chain.back()->setOutput(transform);
         }
         chain.push_back(transform);
-        
     }
 
     void
@@ -175,6 +144,5 @@ namespace Broadcaster {
         if(m_videoSplit) {
             m_videoSplit->setOutput(m_pbOutput);
         }
-        
     }
 };

@@ -32,11 +32,11 @@ namespace Broadcaster {
             void setPBCallback(CinePixelBufferCallback callback) ;
             
             // Starting a new session will end the current session.
-            void startRtmpSession(std::string uri, int frame_w, int frame_h, int bitrate, int fps);
+            void startRtmpSession(std::string uri, int frame_w, int frame_h, int bitrate, int fps, int channelCount, int sampleRateHz);
             
             
         private:
-            void setupGraph(int frame_w, int frame_h, int fps, int bitrate);
+            void setupGraph(int frame_w, int frame_h, int fps, int bitrate, int channelCount, int sampleRateHz);
             void addTransform(std::vector< std::shared_ptr<videocore::ITransform> > & chain, std::shared_ptr<videocore::ITransform> transform);
             
         private:

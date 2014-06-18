@@ -80,7 +80,7 @@
             [self gotPixelBuffer: data withSize: size];
         });
         
-        pipeline->startRtmpSession([rtmpUrl UTF8String], 1280, 720, 1500000 /* video bitrate */, 30 /* video fps */);
+        pipeline->startRtmpSession([rtmpUrl UTF8String], 1280, 720, 1500000 /* video bitrate */, 30 /* video fps */, 2, 44100);
     } else {
         broadcasterView.controlsView.recordButton.recording = NO;
         // disconnect
