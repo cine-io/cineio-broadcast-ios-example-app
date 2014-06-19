@@ -1,10 +1,74 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="S3T-Nj-Yu0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Cine Publisher View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="4ww-Ee-yGZ">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="S3T-Nj-Yu0" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="Xv5-4d-E8u">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="61o-MB-G04" kind="relationship" relationship="viewControllers" id="Eda-Ph-WUx"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="e2k-Tr-qSM"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iEX-2N-WGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1231" y="-1125"/>
+        </scene>
+        <!--Cine Player View Controller - Watch-->
+        <scene sceneID="q4W-Yr-4H1">
+            <objects>
+                <viewController id="61o-MB-G04" customClass="CinePlayerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IfS-a7-9CO"/>
+                        <viewControllerLayoutGuide type="bottom" id="AV5-XS-zJ5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f6Y-q2-geq">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Eg-Po-2GF">
+                                <rect key="frame" x="320" y="448" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Circle Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startStreaming:" destination="61o-MB-G04" eventType="touchUpInside" id="y8s-EC-2hq"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ebr-iF-N4Z">
+                                <rect key="frame" x="366" y="493" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="0Eg-Po-2GF" secondAttribute="centerX" id="HfH-8M-xwS"/>
+                            <constraint firstAttribute="centerX" secondItem="ebr-iF-N4Z" secondAttribute="centerX" id="VS4-7P-vd7"/>
+                            <constraint firstAttribute="centerY" secondItem="ebr-iF-N4Z" secondAttribute="centerY" id="cup-x5-ekQ"/>
+                            <constraint firstAttribute="centerY" secondItem="0Eg-Po-2GF" secondAttribute="centerY" id="sE9-or-yuD"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Watch" image="Play" id="pTk-7j-On6"/>
+                    <connections>
+                        <outlet property="playButton" destination="0Eg-Po-2GF" id="dSs-Hh-Uix"/>
+                        <outlet property="spinner" destination="ebr-iF-N4Z" id="h6y-FC-RBs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sle-1u-9a6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="143" y="-481"/>
+        </scene>
+        <!--Cine Publisher View Controller - Broadcast-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CinePublisherViewController" sceneMemberID="viewController">
@@ -13,15 +77,22 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="CineBroadcasterView">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Broadcast" image="Record" id="v3G-XR-DFE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="143" y="-1760"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Circle Play" width="256" height="256"/>
+        <image name="Play" width="25" height="25"/>
+        <image name="Record" width="25" height="25"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
