@@ -22,7 +22,7 @@
 		00C5E18A193FB3AC009DA7B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C5E166193FB3AC009DA7B9 /* Foundation.framework */; };
 		00C5E18B193FB3AC009DA7B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C5E16A193FB3AC009DA7B9 /* UIKit.framework */; };
 		00C5E193193FB3AC009DA7B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00C5E191193FB3AC009DA7B9 /* InfoPlist.strings */; };
-		00C5E195193FB3AC009DA7B9 /* BroadcasterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C5E194193FB3AC009DA7B9 /* BroadcasterTests.m */; };
+		00C5E195193FB3AC009DA7B9 /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C5E194193FB3AC009DA7B9 /* ExampleTests.m */; };
 		00C5E19F193FB74B009DA7B9 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 00C5E19E193FB74B009DA7B9 /* Podfile */; };
 		00C5E1A1193FB761009DA7B9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 00C5E1A0193FB761009DA7B9 /* README.md */; };
 		00C5E1A3193FB8C2009DA7B9 /* cineio-settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00C5E1A2193FB8C2009DA7B9 /* cineio-settings.plist */; };
@@ -36,20 +36,20 @@
 			containerPortal = 00C5E15B193FB3AC009DA7B9 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 00C5E162193FB3AC009DA7B9;
-			remoteInfo = Broadcaster;
+			remoteInfo = Example;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		006605841940D13200871ACE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		00C5E163193FB3AC009DA7B9 /* Broadcaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Broadcaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00C5E163193FB3AC009DA7B9 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C5E166193FB3AC009DA7B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00C5E168193FB3AC009DA7B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		00C5E16A193FB3AC009DA7B9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		00C5E16E193FB3AC009DA7B9 /* Broadcaster-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Broadcaster-Info.plist"; sourceTree = "<group>"; };
+		00C5E16E193FB3AC009DA7B9 /* Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Example-Info.plist"; sourceTree = "<group>"; };
 		00C5E170193FB3AC009DA7B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00C5E172193FB3AC009DA7B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		00C5E174193FB3AC009DA7B9 /* Broadcaster-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Broadcaster-Prefix.pch"; sourceTree = "<group>"; };
+		00C5E174193FB3AC009DA7B9 /* Example-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Example-Prefix.pch"; sourceTree = "<group>"; };
 		00C5E175193FB3AC009DA7B9 /* CineAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CineAppDelegate.h; sourceTree = "<group>"; };
 		00C5E176193FB3AC009DA7B9 /* CineAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CineAppDelegate.m; sourceTree = "<group>"; };
 		00C5E179193FB3AC009DA7B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
@@ -57,11 +57,11 @@
 		00C5E17E193FB3AC009DA7B9 /* CinePublisherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CinePublisherViewController.h; sourceTree = "<group>"; };
 		00C5E17F193FB3AC009DA7B9 /* CinePublisherViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CinePublisherViewController.mm; sourceTree = "<group>"; };
 		00C5E181193FB3AC009DA7B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		00C5E187193FB3AC009DA7B9 /* BroadcasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BroadcasterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00C5E187193FB3AC009DA7B9 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C5E188193FB3AC009DA7B9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		00C5E190193FB3AC009DA7B9 /* BroadcasterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BroadcasterTests-Info.plist"; sourceTree = "<group>"; };
+		00C5E190193FB3AC009DA7B9 /* ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
 		00C5E192193FB3AC009DA7B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		00C5E194193FB3AC009DA7B9 /* BroadcasterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcasterTests.m; sourceTree = "<group>"; };
+		00C5E194193FB3AC009DA7B9 /* ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleTests.m; sourceTree = "<group>"; };
 		00C5E19E193FB74B009DA7B9 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		00C5E1A0193FB761009DA7B9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		00C5E1A2193FB8C2009DA7B9 /* cineio-settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "cineio-settings.plist"; sourceTree = "<group>"; };
@@ -101,8 +101,8 @@
 			children = (
 				00C5E1A0193FB761009DA7B9 /* README.md */,
 				00C5E19E193FB74B009DA7B9 /* Podfile */,
-				00C5E16C193FB3AC009DA7B9 /* Broadcaster */,
-				00C5E18E193FB3AC009DA7B9 /* BroadcasterTests */,
+				00C5E16C193FB3AC009DA7B9 /* Example */,
+				00C5E18E193FB3AC009DA7B9 /* ExampleTests */,
 				00C5E165193FB3AC009DA7B9 /* Frameworks */,
 				00C5E164193FB3AC009DA7B9 /* Products */,
 				93DBB47F29D94692A4DACA20 /* Pods.xcconfig */,
@@ -112,8 +112,8 @@
 		00C5E164193FB3AC009DA7B9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				00C5E163193FB3AC009DA7B9 /* Broadcaster.app */,
-				00C5E187193FB3AC009DA7B9 /* BroadcasterTests.xctest */,
+				00C5E163193FB3AC009DA7B9 /* Example.app */,
+				00C5E187193FB3AC009DA7B9 /* ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,7 +131,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		00C5E16C193FB3AC009DA7B9 /* Broadcaster */ = {
+		00C5E16C193FB3AC009DA7B9 /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				00C5E175193FB3AC009DA7B9 /* CineAppDelegate.h */,
@@ -143,35 +143,35 @@
 				00C5E181193FB3AC009DA7B9 /* Images.xcassets */,
 				00C5E16D193FB3AC009DA7B9 /* Supporting Files */,
 			);
-			path = Broadcaster;
+			path = Example;
 			sourceTree = "<group>";
 		};
 		00C5E16D193FB3AC009DA7B9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				00C5E16E193FB3AC009DA7B9 /* Broadcaster-Info.plist */,
+				00C5E16E193FB3AC009DA7B9 /* Example-Info.plist */,
 				00C5E16F193FB3AC009DA7B9 /* InfoPlist.strings */,
 				00C5E172193FB3AC009DA7B9 /* main.m */,
-				00C5E174193FB3AC009DA7B9 /* Broadcaster-Prefix.pch */,
+				00C5E174193FB3AC009DA7B9 /* Example-Prefix.pch */,
 				00C5E1A4193FB9EC009DA7B9 /* SAMPLE-cineio-settings.plist */,
 				00C5E1A2193FB8C2009DA7B9 /* cineio-settings.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		00C5E18E193FB3AC009DA7B9 /* BroadcasterTests */ = {
+		00C5E18E193FB3AC009DA7B9 /* ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				00C5E194193FB3AC009DA7B9 /* BroadcasterTests.m */,
+				00C5E194193FB3AC009DA7B9 /* ExampleTests.m */,
 				00C5E18F193FB3AC009DA7B9 /* Supporting Files */,
 			);
-			path = BroadcasterTests;
+			path = ExampleTests;
 			sourceTree = "<group>";
 		};
 		00C5E18F193FB3AC009DA7B9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				00C5E190193FB3AC009DA7B9 /* BroadcasterTests-Info.plist */,
+				00C5E190193FB3AC009DA7B9 /* ExampleTests-Info.plist */,
 				00C5E191193FB3AC009DA7B9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -180,9 +180,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00C5E162193FB3AC009DA7B9 /* Broadcaster */ = {
+		00C5E162193FB3AC009DA7B9 /* Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00C5E198193FB3AC009DA7B9 /* Build configuration list for PBXNativeTarget "Broadcaster" */;
+			buildConfigurationList = 00C5E198193FB3AC009DA7B9 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
 				337577DD23AF49F8B2A91D9E /* Check Pods Manifest.lock */,
 				00C5E15F193FB3AC009DA7B9 /* Sources */,
@@ -194,14 +194,14 @@
 			);
 			dependencies = (
 			);
-			name = Broadcaster;
-			productName = Broadcaster;
-			productReference = 00C5E163193FB3AC009DA7B9 /* Broadcaster.app */;
+			name = Example;
+			productName = Example;
+			productReference = 00C5E163193FB3AC009DA7B9 /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		00C5E186193FB3AC009DA7B9 /* BroadcasterTests */ = {
+		00C5E186193FB3AC009DA7B9 /* ExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00C5E19B193FB3AC009DA7B9 /* Build configuration list for PBXNativeTarget "BroadcasterTests" */;
+			buildConfigurationList = 00C5E19B193FB3AC009DA7B9 /* Build configuration list for PBXNativeTarget "ExampleTests" */;
 			buildPhases = (
 				00C5E183193FB3AC009DA7B9 /* Sources */,
 				00C5E184193FB3AC009DA7B9 /* Frameworks */,
@@ -212,9 +212,9 @@
 			dependencies = (
 				00C5E18D193FB3AC009DA7B9 /* PBXTargetDependency */,
 			);
-			name = BroadcasterTests;
-			productName = BroadcasterTests;
-			productReference = 00C5E187193FB3AC009DA7B9 /* BroadcasterTests.xctest */;
+			name = ExampleTests;
+			productName = ExampleTests;
+			productReference = 00C5E187193FB3AC009DA7B9 /* ExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -232,7 +232,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 00C5E15E193FB3AC009DA7B9 /* Build configuration list for PBXProject "Broadcaster" */;
+			buildConfigurationList = 00C5E15E193FB3AC009DA7B9 /* Build configuration list for PBXProject "Example" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -245,8 +245,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				00C5E162193FB3AC009DA7B9 /* Broadcaster */,
-				00C5E186193FB3AC009DA7B9 /* BroadcasterTests */,
+				00C5E162193FB3AC009DA7B9 /* Example */,
+				00C5E186193FB3AC009DA7B9 /* ExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -325,7 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00C5E195193FB3AC009DA7B9 /* BroadcasterTests.m in Sources */,
+				00C5E195193FB3AC009DA7B9 /* ExampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +334,7 @@
 /* Begin PBXTargetDependency section */
 		00C5E18D193FB3AC009DA7B9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 00C5E162193FB3AC009DA7B9 /* Broadcaster */;
+			target = 00C5E162193FB3AC009DA7B9 /* Example */;
 			targetProxy = 00C5E18C193FB3AC009DA7B9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -454,8 +454,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Broadcaster/Broadcaster-Prefix.pch";
-				INFOPLIST_FILE = "Broadcaster/Broadcaster-Info.plist";
+				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
+				INFOPLIST_FILE = "Example/Example-Info.plist";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-framework",
@@ -494,8 +494,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Broadcaster/Broadcaster-Prefix.pch";
-				INFOPLIST_FILE = "Broadcaster/Broadcaster-Info.plist";
+				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
+				INFOPLIST_FILE = "Example/Example-Info.plist";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-framework",
@@ -530,19 +530,19 @@
 		00C5E19C193FB3AC009DA7B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Broadcaster.app/Broadcaster";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Broadcaster/Broadcaster-Prefix.pch";
+				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "BroadcasterTests/BroadcasterTests-Info.plist";
+				INFOPLIST_FILE = "ExampleTests/ExampleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -552,15 +552,15 @@
 		00C5E19D193FB3AC009DA7B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Broadcaster.app/Broadcaster";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Broadcaster/Broadcaster-Prefix.pch";
-				INFOPLIST_FILE = "BroadcasterTests/BroadcasterTests-Info.plist";
+				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
+				INFOPLIST_FILE = "ExampleTests/ExampleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -570,7 +570,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00C5E15E193FB3AC009DA7B9 /* Build configuration list for PBXProject "Broadcaster" */ = {
+		00C5E15E193FB3AC009DA7B9 /* Build configuration list for PBXProject "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00C5E196193FB3AC009DA7B9 /* Debug */,
@@ -579,7 +579,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00C5E198193FB3AC009DA7B9 /* Build configuration list for PBXNativeTarget "Broadcaster" */ = {
+		00C5E198193FB3AC009DA7B9 /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00C5E199193FB3AC009DA7B9 /* Debug */,
@@ -588,7 +588,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		00C5E19B193FB3AC009DA7B9 /* Build configuration list for PBXNativeTarget "BroadcasterTests" */ = {
+		00C5E19B193FB3AC009DA7B9 /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00C5E19C193FB3AC009DA7B9 /* Debug */,

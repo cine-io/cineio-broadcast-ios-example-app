@@ -1,6 +1,6 @@
 //
-//  BroadcasterTests.m
-//  BroadcasterTests
+//  ExampleTests.m
+//  ExampleTests
 //
 //  Created by Jeffrey Wescott on 6/4/14.
 //  Copyright (c) 2014 cine.io. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface BroadcasterTests : XCTestCase
+@interface ExampleTests : XCTestCase
 
 @end
 
-@implementation BroadcasterTests
+@implementation ExampleTests
 
 - (void)setUp
 {

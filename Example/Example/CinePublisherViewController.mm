@@ -1,6 +1,6 @@
 //
 //  CinePublisherViewController.m
-//  Broadcaster
+//  Example
 //
 //  Created by Jeffrey Wescott on 6/4/14.
 //  Copyright (c) 2014 cine.io. All rights reserved.
@@ -31,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     //-- A/V setup
     self.frameWidth = 1280;
     self.frameHeight = 720;
@@ -46,7 +46,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"cineio-settings" ofType:@"plist"];
     NSDictionary *settings = [[NSDictionary alloc] initWithContentsOfFile:path];
     NSLog(@"settings: %@", settings);
-    
+
     // create a new CineClient to fetch our stream information
     CineClient *cine = [[CineClient alloc] initWithSecretKey:settings[@"CINE_IO_SECRET_KEY"]];
     [self updateStatus:@"Configuring stream using cine.io ..."];
