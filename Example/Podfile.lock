@@ -33,25 +33,25 @@ PODS:
   - boost/preprocessor-includes (1.51.0)
   - boost/shared_ptr-includes (1.51.0)
   - boost/string_algorithms-includes (1.51.0)
-  - cineio-ios (0.1.6):
+  - cineio-ios (0.1.7):
     - AFNetworking (~> 2.2.4)
     - VideoCore (~> 0.1.6)
   - glm (0.9.4.6)
   - UriParser-cpp (0.1.3)
-  - VideoCore (0.1.6):
+  - VideoCore (0.1.8):
     - boost (~> 1.51.0)
     - glm (~> 0.9.4.6)
     - UriParser-cpp (~> 0.1.3)
 
 DEPENDENCIES:
-  - cineio-ios (~> 0.1.6)
+  - cineio-ios (~> 0.1.7)
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
   boost: 581038adda16d11045576013ad27e3eeeabc2d10
-  cineio-ios: 715c3536b6ef5336d1222d9ffd33a02a8ef1065b
+  cineio-ios: 57362652bb46c71a0d4af11f64e115dc27d38e94
   glm: 840dd35fe3cc445935accf81ffd1384dad532ee7
   UriParser-cpp: e6df3fd87445ba4ab37a72acafb4f03bc39db524
-  VideoCore: d35740a862048f08984c9485b4b305cd85bc588b
+  VideoCore: 29c544719ee942e70bdb98cf3d425e8332605663
 
 COCOAPODS: 0.33.1
