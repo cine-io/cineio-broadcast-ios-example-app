@@ -146,8 +146,8 @@
 			children = (
 				00C5E175193FB3AC009DA7B9 /* CineAppDelegate.h */,
 				00C5E176193FB3AC009DA7B9 /* CineAppDelegate.m */,
-				00C5E178193FB3AC009DA7B9 /* Main_iPhone.storyboard */,
 				00C5E17B193FB3AC009DA7B9 /* Main_iPad.storyboard */,
+				00C5E178193FB3AC009DA7B9 /* Main_iPhone.storyboard */,
 				00C5E17E193FB3AC009DA7B9 /* CinePublisherViewController.h */,
 				00C5E17F193FB3AC009DA7B9 /* CinePublisherViewController.mm */,
 				00D226F71952A0250081E1CD /* CinePlayerViewController.h */,
