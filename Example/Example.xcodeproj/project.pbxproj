@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		006605851940D13200871ACE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006605841940D13200871ACE /* QuartzCore.framework */; };
+		00ADC6FC1975B09600857375 /* CineStreamerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00ADC6FB1975B09600857375 /* CineStreamerViewController.mm */; };
 		00C5E167193FB3AC009DA7B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C5E166193FB3AC009DA7B9 /* Foundation.framework */; };
 		00C5E169193FB3AC009DA7B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C5E168193FB3AC009DA7B9 /* CoreGraphics.framework */; };
 		00C5E16B193FB3AC009DA7B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C5E16A193FB3AC009DA7B9 /* UIKit.framework */; };
@@ -29,7 +30,6 @@
 		00C5E1A5193FB9EC009DA7B9 /* SAMPLE-cineio-settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00C5E1A4193FB9EC009DA7B9 /* SAMPLE-cineio-settings.plist */; };
 		00D226F419529E700081E1CD /* CineTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D226F319529E700081E1CD /* CineTabBarController.m */; };
 		00D226F619529F750081E1CD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D226F519529F750081E1CD /* MediaPlayer.framework */; };
-		00D226F91952A0250081E1CD /* CinePlayerViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00D226F81952A0250081E1CD /* CinePlayerViewController.mm */; };
 		F1B189ABA9E24A2C8C3F0B46 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D51065605F54399B601FB91 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		006605841940D13200871ACE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		00ADC6FA1975B09600857375 /* CineStreamerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CineStreamerViewController.h; sourceTree = "<group>"; };
+		00ADC6FB1975B09600857375 /* CineStreamerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CineStreamerViewController.mm; sourceTree = "<group>"; };
 		00C5E163193FB3AC009DA7B9 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C5E166193FB3AC009DA7B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		00C5E168193FB3AC009DA7B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,8 +74,6 @@
 		00D226F219529E700081E1CD /* CineTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CineTabBarController.h; sourceTree = "<group>"; };
 		00D226F319529E700081E1CD /* CineTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CineTabBarController.m; sourceTree = "<group>"; };
 		00D226F519529F750081E1CD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		00D226F71952A0250081E1CD /* CinePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinePlayerViewController.h; sourceTree = "<group>"; };
-		00D226F81952A0250081E1CD /* CinePlayerViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CinePlayerViewController.mm; sourceTree = "<group>"; };
 		8D51065605F54399B601FB91 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DBB47F29D94692A4DACA20 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,8 +150,8 @@
 				00C5E178193FB3AC009DA7B9 /* Main_iPhone.storyboard */,
 				00C5E17E193FB3AC009DA7B9 /* CinePublisherViewController.h */,
 				00C5E17F193FB3AC009DA7B9 /* CinePublisherViewController.mm */,
-				00D226F71952A0250081E1CD /* CinePlayerViewController.h */,
-				00D226F81952A0250081E1CD /* CinePlayerViewController.mm */,
+				00ADC6FA1975B09600857375 /* CineStreamerViewController.h */,
+				00ADC6FB1975B09600857375 /* CineStreamerViewController.mm */,
 				00D226F219529E700081E1CD /* CineTabBarController.h */,
 				00D226F319529E700081E1CD /* CineTabBarController.m */,
 				00C5E181193FB3AC009DA7B9 /* Images.xcassets */,
@@ -333,7 +333,7 @@
 				00C5E180193FB3AC009DA7B9 /* CinePublisherViewController.mm in Sources */,
 				00C5E173193FB3AC009DA7B9 /* main.m in Sources */,
 				00C5E177193FB3AC009DA7B9 /* CineAppDelegate.m in Sources */,
-				00D226F91952A0250081E1CD /* CinePlayerViewController.mm in Sources */,
+				00ADC6FC1975B09600857375 /* CineStreamerViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

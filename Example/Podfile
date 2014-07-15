@@ -1,5 +1,4 @@
 platform :ios, '6.0'
 
-pod 'cineio-ios', '~> 0.2.2'
+pod 'cineio-ios', '~> 0.3.1'
 #pod 'cineio-ios', path: '/Users/jeffrey/dev/cine-dev/cineio-ios'
-

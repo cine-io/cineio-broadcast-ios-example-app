@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3MX-ri-r5M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3MX-ri-r5M">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Cine Publisher View Controller - Publish-->
+        <!--Cine Publisher View Controller - Broadcast-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="CinePublisherViewController" sceneMemberID="viewController">
@@ -27,9 +27,8 @@
         <!--Cine Tab Bar Controller-->
         <scene sceneID="sWE-uX-5Mc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m9V-t4-kdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController definesPresentationContext="YES" hidesBottomBarWhenPushed="YES" id="3MX-ri-r5M" customClass="CineTabBarController" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="I7f-ce-HhN">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -40,14 +39,14 @@
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="uZ5-C4-kYN"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m9V-t4-kdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-649" y="-869"/>
         </scene>
-        <!--Cine Player View Controller - Watch-->
+        <!--Cine Streamer View Controller - Watch-->
         <scene sceneID="jnM-ZO-hp6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A9U-kt-DZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="fco-Yw-udF" customClass="CinePlayerViewController" sceneMemberID="viewController">
+                <viewController id="fco-Yw-udF" customClass="CineStreamerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cdq-xY-mXa"/>
                         <viewControllerLayoutGuide type="bottom" id="ddT-62-gqB"/>
@@ -56,10 +55,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="J90-zD-9Cz">
-                                <rect key="frame" x="142" y="241" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfv-Vw-vbS">
                                 <rect key="frame" x="96" y="196" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -73,24 +68,22 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startStreaming:" destination="fco-Yw-udF" eventType="touchUpInside" id="iLQ-EX-m21"/>
+                                    <action selector="playButtonPressed:" destination="fco-Yw-udF" eventType="touchUpInside" id="Qwt-Xn-2aA"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="Xfv-Vw-vbS" secondAttribute="centerY" id="B1H-TB-5rh"/>
-                            <constraint firstAttribute="centerX" secondItem="J90-zD-9Cz" secondAttribute="centerX" id="hhV-Kr-8lm"/>
                             <constraint firstAttribute="centerX" secondItem="Xfv-Vw-vbS" secondAttribute="centerX" id="wKX-LX-R1a"/>
-                            <constraint firstAttribute="centerY" secondItem="J90-zD-9Cz" secondAttribute="centerY" id="xS7-T2-vxW"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Watch" image="Play" id="r0X-MR-HgF"/>
                     <connections>
                         <outlet property="playButton" destination="Xfv-Vw-vbS" id="gPz-G6-Dsu"/>
-                        <outlet property="spinner" destination="J90-zD-9Cz" id="1Ns-o0-Fvh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A9U-kt-DZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="189" y="-487"/>
         </scene>
