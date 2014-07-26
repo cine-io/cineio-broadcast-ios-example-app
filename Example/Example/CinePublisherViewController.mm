@@ -16,25 +16,16 @@
 
 @implementation CinePublisherViewController
 
-// CineBroadcasterProtocol
-@synthesize frameWidth;
-@synthesize frameHeight;
-@synthesize framesPerSecond;
-@synthesize videoBitRate;
-
-@synthesize publishUrl;
-@synthesize publishStreamName;
-
-
 - (void)viewDidLoad
 {
     //-- A/V setup
-    self.frameWidth = 1280;
-    self.frameHeight = 720;
+    self.videoSize = CGSizeMake(1280, 720);
     self.framesPerSecond = 30;
     self.videoBitRate = 1500000;
+    self.sampleRateInHz = 44100; // either 44100 or 22050
 
-    // must be called _after_ we set up our properties, as our superclass will use them
+    // must be called _after_ we set up our properties, as our superclass
+    // will use them in its viewDidLoad method
     [super viewDidLoad];
 
     //-- cine.io setup
