@@ -36,7 +36,8 @@
     NSLog(@"settings: %@", settings);
 
     // create a new CineClient to fetch our stream information
-    CineClient *cine = [[CineClient alloc] initWithSecretKey:settings[@"CINE_IO_SECRET_KEY"]];
+    CineClient *cine = [[CineClient alloc] init];
+    cine.projectSecretKey = settings[@"CINE_IO_PROJECT_SECRET_KEY"];
     [self updateStatus:@"Configuring stream using cine.io ..."];
     [cine getStream:settings[@"CINE_IO_STREAM_ID"] withCompletionHandler:^(NSError *error, CineStream *stream) {
         if (error) {
