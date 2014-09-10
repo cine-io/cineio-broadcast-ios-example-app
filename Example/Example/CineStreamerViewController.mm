@@ -51,11 +51,13 @@
 {
     playButton.enabled = NO;
     playButton.hidden = YES;
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     [self startStreaming];
 }
 
 - (void)finishStreaming
 {
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
     playButton.hidden = NO;
     playButton.enabled = YES;
 }

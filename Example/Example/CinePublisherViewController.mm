@@ -53,4 +53,22 @@
     }];
 }
 
+- (void)toggleStreaming:(id)sender
+{
+    switch(self.streamState) {
+        case CineStreamStateNone:
+        case CineStreamStatePreviewStarted:
+        case CineStreamStateEnded:
+        case CineStreamStateError:
+            [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+            break;
+        default:
+            [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+            break;
+    }
+    
+    // start / stop the actual stream
+    [super toggleStreaming:sender];
+}
+
 @end
