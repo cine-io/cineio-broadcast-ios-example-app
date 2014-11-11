@@ -40,7 +40,7 @@ PODS:
     - VideoCore (~> 0.1.10)
   - glm (0.9.4.6)
   - UriParser-cpp (0.1.3)
-  - VideoCore (0.1.10.4):
+  - VideoCore (0.1.12):
     - boost (~> 1.51.0)
     - glm (~> 0.9.4.6)
     - UriParser-cpp (~> 0.1.3)
@@ -54,6 +54,6 @@ SPEC CHECKSUMS:
   cineio-ios: 3bda4239155f104b9fd019ffb3d9d63d147fbead
   glm: 840dd35fe3cc445935accf81ffd1384dad532ee7
   UriParser-cpp: e6df3fd87445ba4ab37a72acafb4f03bc39db524
-  VideoCore: e381c653331fa0d0237311dec5fa6b625ae35dd5
+  VideoCore: 4842dcca60f127b3c75c1e21aa1304356d911b8d
 
-COCOAPODS: 0.34.0.rc2
+COCOAPODS: 0.34.4
