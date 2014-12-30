@@ -19,6 +19,7 @@
 - (void)viewDidLoad
 {
     //-- A/V setup
+    self.orientationLocked = NO; // set to YES to turn off rotation support in UI
     self.videoSize = CGSizeMake(720, 1280);
     self.framesPerSecond = 30;
     self.videoBitRate = 1500000;
