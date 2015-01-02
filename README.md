@@ -1,7 +1,7 @@
-# cineio-ios-example-app
+# cineio-broadcast-ios-example-app
 
 Sample iOS application to demonstrate broadcasting and playback using the
-[cine.io iOS SDK][cineio-ios].
+[cine.io Broadcast iOS SDK][cineio-broadcast-ios].
 
 ## How to Use
 
@@ -15,5 +15,5 @@ Sample iOS application to demonstrate broadcasting and playback using the
 
 
 <!-- external links -->
-[cineio-ios]:https://github.com/cine-io/cineio-ios
+[cineio-broadcast-ios]:https://github.com/cine-io/cineio-broadcast-ios
 [cine]:https://www.cine.io/
