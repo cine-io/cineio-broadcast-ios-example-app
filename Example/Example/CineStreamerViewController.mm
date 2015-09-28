@@ -13,18 +13,21 @@
 
 @end
 
-@implementation CineStreamerViewController
+@implementation CineStreamerViewController {
+    CineClient *_cineClient;
+    NSString *_cineStreamId;
+}
 
 @synthesize playButton;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     playButton.hidden = NO;
     playButton.enabled = YES;
     
     //-- cine.io setup
-    
     // read our cine.io configuration from a plist bundle
     NSString *path = [[NSBundle mainBundle] pathForResource:@"cineio-settings" ofType:@"plist"];
     NSDictionary *settings = [[NSDictionary alloc] initWithContentsOfFile:path];
@@ -33,18 +36,17 @@
     // create a new CineClient to fetch our stream information
     CineClient *cine = [[CineClient alloc] init];
     cine.projectSecretKey = settings[@"CINE_IO_PROJECT_SECRET_KEY"];
-    [cine getStream:settings[@"CINE_IO_STREAM_ID"] withCompletionHandler:^(NSError *error, CineStream *stream) {
-        if (error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network error"
-                                                            message:@"Couldn't get stream settings from cine.io."
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-        } else {
-            self.stream = stream;
-        }
-    }];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *streamId = [@[[defaults stringForKey:@"JRSTV_ROOM_ID"], [defaults stringForKey:@"JRSTV_ROOM_PASS"]] componentsJoinedByString:@":"];
+    
+    _cineClient = cine;
+    _cineStreamId = streamId;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (IBAction)playButtonPressed:(id)sender
@@ -52,18 +54,29 @@
     playButton.enabled = NO;
     playButton.hidden = YES;
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-    [self startStreaming];
+    
+    [_cineClient getStream:_cineStreamId withCompletionHandler:^(NSError *error, CineStream *stream) {
+        if (error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Get Stream Error"
+                                                            message:@"Couldn't get stream settings from jrs.tv."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            [self finishStreaming];
+        } else {
+            self.stream = stream;
+            [self startStreaming];
+        }
+    }];
 }
 
 - (void)finishStreaming
 {
+    [super finishStreaming];
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
     playButton.hidden = NO;
     playButton.enabled = YES;
-}
-
-- (BOOL)shouldAutorotate {
-    return YES;
 }
 
 @end

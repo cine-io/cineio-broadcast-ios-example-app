@@ -12,8 +12,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // Register the preference defaults early.
+    [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"JRSTV_ROOM_ID": @"", @"JRSTV_ROOM_PASS": @""}];
+
+    // Turn on device orientation notification.
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+
+    // Switch to main segue if logged in.
+    if ([[NSUserDefaults standardUserDefaults] stringForKey:@"JRSTV_ROOM_ID"].length != 0) {
+        UINavigationController *root = (UINavigationController *)self.window.rootViewController;
+        UIViewController *login = root.topViewController;
+        [login performSegueWithIdentifier:@"mainNoAnimation" sender:self];
+    }
+
     return YES;
 }
 

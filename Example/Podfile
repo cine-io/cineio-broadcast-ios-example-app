@@ -3,10 +3,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 # Comment out this line if working on cineio-ios
-pod 'cineio-broadcast-ios', '~> 0.7'
+#pod 'cineio-broadcast-ios', '~> 0.7'
 
 # Uncomment this line if working on cineio-ios
-#pod 'cineio-broadcast-ios', path: '/Users/jeffrey/dev/cine-dev/cineio-broadcast-ios'
+pod 'cineio-broadcast-ios', path: '/Users/soplwang/Projects/JRs.tv/jrstv-broadcast-ios'
 
 # Uncomment this line if working on VideoCore
-#pod 'VideoCore', path: '/Users/jeffrey/dev/cine-dev/VideoCore'
+pod 'VideoCore', path: '/Users/soplwang/Projects/JRs.tv/VideoCore'

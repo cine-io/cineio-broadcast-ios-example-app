@@ -30,6 +30,9 @@
 		00C5E1A5193FB9EC009DA7B9 /* SAMPLE-cineio-settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00C5E1A4193FB9EC009DA7B9 /* SAMPLE-cineio-settings.plist */; };
 		00D226F419529E700081E1CD /* CineTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D226F319529E700081E1CD /* CineTabBarController.m */; };
 		00D226F619529F750081E1CD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D226F519529F750081E1CD /* MediaPlayer.framework */; };
+		78BF51BA1B81B4A5006CB47E /* JRSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BF51B91B81B4A5006CB47E /* JRSNavigationController.m */; };
+		78E7C5401B7708CB0014C632 /* JRSLoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E7C53F1B7708CB0014C632 /* JRSLoginTableViewController.m */; };
+		78FE21351B749B2B00B3EC8E /* JRSSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78FE21341B749B2B00B3EC8E /* JRSSettingsTableViewController.m */; };
 		F1B189ABA9E24A2C8C3F0B46 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D51065605F54399B601FB91 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +78,12 @@
 		00D226F319529E700081E1CD /* CineTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CineTabBarController.m; sourceTree = "<group>"; };
 		00D226F519529F750081E1CD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		4927B8D16676F5F0C04C82E7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		78BF51B81B81B4A5006CB47E /* JRSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSNavigationController.h; sourceTree = "<group>"; };
+		78BF51B91B81B4A5006CB47E /* JRSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSNavigationController.m; sourceTree = "<group>"; };
+		78E7C53E1B7708CB0014C632 /* JRSLoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSLoginTableViewController.h; sourceTree = "<group>"; };
+		78E7C53F1B7708CB0014C632 /* JRSLoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSLoginTableViewController.m; sourceTree = "<group>"; };
+		78FE21331B749B2B00B3EC8E /* JRSSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSSettingsTableViewController.h; sourceTree = "<group>"; };
+		78FE21341B749B2B00B3EC8E /* JRSSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSSettingsTableViewController.m; sourceTree = "<group>"; };
 		8450E88C13C78FC240DC1BCB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8D51065605F54399B601FB91 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -155,6 +164,12 @@
 				00ADC6FB1975B09600857375 /* CineStreamerViewController.mm */,
 				00D226F219529E700081E1CD /* CineTabBarController.h */,
 				00D226F319529E700081E1CD /* CineTabBarController.m */,
+				78E7C53E1B7708CB0014C632 /* JRSLoginTableViewController.h */,
+				78E7C53F1B7708CB0014C632 /* JRSLoginTableViewController.m */,
+				78FE21331B749B2B00B3EC8E /* JRSSettingsTableViewController.h */,
+				78FE21341B749B2B00B3EC8E /* JRSSettingsTableViewController.m */,
+				78BF51B81B81B4A5006CB47E /* JRSNavigationController.h */,
+				78BF51B91B81B4A5006CB47E /* JRSNavigationController.m */,
 				00C5E181193FB3AC009DA7B9 /* Images.xcassets */,
 				00C5E16D193FB3AC009DA7B9 /* Supporting Files */,
 			);
@@ -247,12 +262,12 @@
 		00C5E15B193FB3AC009DA7B9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = Cine;
+				CLASSPREFIX = JRS;
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = cine.io;
+				ORGANIZATIONNAME = Jrs.tv;
 				TargetAttributes = {
 					00C5E162193FB3AC009DA7B9 = {
-						DevelopmentTeam = G5RU2HL4SN;
+						DevelopmentTeam = 634AFE5Y68;
 					};
 					00C5E186193FB3AC009DA7B9 = {
 						TestTargetID = 00C5E162193FB3AC009DA7B9;
@@ -342,11 +357,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78FE21351B749B2B00B3EC8E /* JRSSettingsTableViewController.m in Sources */,
 				00D226F419529E700081E1CD /* CineTabBarController.m in Sources */,
 				00C5E180193FB3AC009DA7B9 /* CinePublisherViewController.mm in Sources */,
+				78E7C5401B7708CB0014C632 /* JRSLoginTableViewController.m in Sources */,
 				00C5E173193FB3AC009DA7B9 /* main.m in Sources */,
 				00C5E177193FB3AC009DA7B9 /* CineAppDelegate.m in Sources */,
 				00ADC6FC1975B09600857375 /* CineStreamerViewController.mm in Sources */,
+				78BF51BA1B81B4A5006CB47E /* JRSNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -469,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -489,6 +507,7 @@
 				INFOPLIST_FILE = "Example/Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -506,6 +525,7 @@
 				INFOPLIST_FILE = "Example/Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -513,7 +533,7 @@
 		00C5E19C193FB3AC009DA7B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -527,7 +547,7 @@
 				);
 				INFOPLIST_FILE = "ExampleTests/ExampleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -535,7 +555,7 @@
 		00C5E19D193FB3AC009DA7B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -545,7 +565,7 @@
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
 				INFOPLIST_FILE = "ExampleTests/ExampleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;

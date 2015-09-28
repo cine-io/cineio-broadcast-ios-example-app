@@ -7,6 +7,7 @@
 //
 
 #import "CineTabBarController.h"
+#import "JRSSettingsTableViewController.h"
 
 @interface CineTabBarController ()
 
@@ -14,8 +15,9 @@
 
 @implementation CineTabBarController
 
-- (BOOL)shouldAutorotate {
-    return NO;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.hidesBackButton = TRUE;
 }
 
 @end
