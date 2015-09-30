@@ -49,6 +49,10 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (IBAction)playButtonPressed:(id)sender
 {
     playButton.enabled = NO;

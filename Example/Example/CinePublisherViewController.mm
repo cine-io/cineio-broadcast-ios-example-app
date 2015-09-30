@@ -68,6 +68,14 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return NO;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)toggleStreaming:(id)sender
 {
     switch (self.streamState) {
