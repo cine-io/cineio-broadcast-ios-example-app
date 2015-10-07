@@ -3,10 +3,13 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 # Comment out this line if working on cineio-ios
-pod 'cineio-broadcast-ios', '~> 0.7'
+pod 'cineio-broadcast-ios', :git => 'https://github.com/ArenaCloud/arena-broadcast-ios.git', :branch => 'arenacloud-temp-fix'
+
+# Comment out this line if working on VideoCore
+pod 'VideoCore', :git => 'https://github.com/ArenaCloud/VideoCore.git', :branch => 'master'
 
 # Uncomment this line if working on cineio-ios
-#pod 'cineio-broadcast-ios', path: '/Users/jeffrey/dev/cine-dev/cineio-broadcast-ios'
+#pod 'cineio-broadcast-ios', :path => '../../arena-broadcast-ios'
 
 # Uncomment this line if working on VideoCore
-#pod 'VideoCore', path: '/Users/jeffrey/dev/cine-dev/VideoCore'
+#pod 'VideoCore', :path => '../../VideoCore'

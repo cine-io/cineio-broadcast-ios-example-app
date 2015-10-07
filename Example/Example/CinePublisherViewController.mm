@@ -38,11 +38,13 @@
 
     // create a new CineClient to fetch our stream information
     CineClient *cine = [[CineClient alloc] init];
-    cine.projectSecretKey = settings[@"CINE_IO_PROJECT_SECRET_KEY"];
+    cine.projectPublicKey = settings[@"CINE_IO_PROJECT_PUBLIC_KEY"];
     [self updateStatus:@"Configuring stream using cine.io ..."];
-    [cine getStream:settings[@"CINE_IO_STREAM_ID"] withCompletionHandler:^(NSError *error, CineStream *stream) {
+    [cine getStream:settings[@"CINE_IO_STREAM_ID"]
+         byPassword:settings[@"CINE_IO_STREAM_PASSWORD"]
+        withCompletionHandler:^(NSError *error, CineStream *stream) {
         if (error) {
-            [self updateStatus:@"ERROR: couldn't get stream information from cine.io"];
+            [self updateStatus:@"ERROR: couldn't get stream information from ArenaCloud"];
         } else {
             self.publishUrl = [stream publishUrl];
             self.publishStreamName = [stream publishStreamName];
