@@ -32,8 +32,10 @@
     
     // create a new CineClient to fetch our stream information
     CineClient *cine = [[CineClient alloc] init];
-    cine.projectSecretKey = settings[@"CINE_IO_PROJECT_SECRET_KEY"];
-    [cine getStream:settings[@"CINE_IO_STREAM_ID"] withCompletionHandler:^(NSError *error, CineStream *stream) {
+    cine.projectPublicKey = settings[@"CINE_IO_PROJECT_PUBLIC_KEY"];
+    [cine getStream:settings[@"CINE_IO_STREAM_ID"]
+           byTicket:settings[@"CINE_IO_STREAM_TICKET"]
+        withCompletionHandler:^(NSError *error, CineStream *stream) {
         if (error) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network error"
                                                             message:@"Couldn't get stream settings from cine.io."
